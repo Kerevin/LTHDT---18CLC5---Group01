@@ -18,16 +18,22 @@
     <ClInclude Include="Stadium.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="Person.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+=======
+>>>>>>> ecd0fd316b0ef9e8955976e47bc6a0999a5b3b2e
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Stadium.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="Person.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+=======
+>>>>>>> ecd0fd316b0ef9e8955976e47bc6a0999a5b3b2e
   </ItemGroup>
 </Project>
