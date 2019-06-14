@@ -24,5 +24,5 @@ public:
 	void setAddress(string add);
 	void setKind(string kind);
 	void setCapacity(double capacity);
-	bool checkQuality();
+
 };

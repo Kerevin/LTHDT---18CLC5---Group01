@@ -119,12 +119,14 @@
     <ClInclude Include="..\Finance.h" />
     <ClInclude Include="..\Person.h" />
     <ClInclude Include="..\Stadium.h" />
+    <ClInclude Include="..\Team.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Coach.cpp" />
     <ClCompile Include="..\Finance.cpp" />
     <ClCompile Include="..\Person.cpp" />
     <ClCompile Include="..\Stadium.cpp" />
+    <ClCompile Include="..\Team.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
