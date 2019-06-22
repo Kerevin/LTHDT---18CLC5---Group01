@@ -14,7 +14,7 @@ private:
 public:
 //Phan constructor va destructor
 	Coach();
-	Coach(string hoten,string ngaysinh,string noisinh,string quoctich,string id,string tongiao,const Team &, double luong,int knghiem,int thtich,int sodoibong);
+	Coach(string hoten,string ngaysinh,string noisinh,string quoctich,string id,const Team &, double luong,int knghiem,int thtich,int sodoibong);
 	Coach(Coach &);
 	Coach& operator = (const Coach &);
 	~Coach();

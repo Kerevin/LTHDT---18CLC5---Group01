@@ -11,8 +11,8 @@ Coach::Coach(void)
 	doi=new Team;
 }
 
-Coach::Coach(string hoten,string ngaysinh,string noisinh,string quoctich,string id,string tongiao,const Team &t,double luong,int knghiem,int thtich,int sodoibong)
-	:	Person(hoten,ngaysinh,noisinh,quoctich)
+Coach::Coach(string hoten,string ngaysinh,string noisinh,string quoctich,string id,string tongiao,const Team &t,double luongint knghiem,int thtich,int sodoibong)
+	:	Person(hoten,ngaysinh,noisinh,quoctich, luong)
 {
 	this->mucLuong=luong;
 	this->kinhNghiem=knghiem;

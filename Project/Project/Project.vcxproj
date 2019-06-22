@@ -118,6 +118,7 @@
     <ClInclude Include="..\Coach.h" />
     <ClInclude Include="..\Finance.h" />
     <ClInclude Include="..\Person.h" />
+    <ClInclude Include="..\Player.h" />
     <ClInclude Include="..\Stadium.h" />
     <ClInclude Include="..\Team.h" />
   </ItemGroup>
@@ -125,6 +126,7 @@
     <ClCompile Include="..\Coach.cpp" />
     <ClCompile Include="..\Finance.cpp" />
     <ClCompile Include="..\Person.cpp" />
+    <ClCompile Include="..\Player.cpp" />
     <ClCompile Include="..\Stadium.cpp" />
     <ClCompile Include="..\Team.cpp" />
   </ItemGroup>
