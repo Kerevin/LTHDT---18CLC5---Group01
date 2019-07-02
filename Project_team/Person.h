@@ -2,8 +2,6 @@
 #include <string>
 #include <iostream>
 #include <vector>
-
-
 using namespace std;
 
 class Person
@@ -32,15 +30,11 @@ public:
 	void setNationality(string);
 	void setID(string);
 	void setSalary(double);
-	// void setTeam();
 
 	string getName();
 	string getDoB();
 	string getNationality();
 	string getID();
 	double getSalary();
-	// Team& getTeam();
-
-	double calcSalary();
 
 };

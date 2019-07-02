@@ -11,8 +11,12 @@ Player::Player() {
 	m_Goal = 0;
 	m_Ban = false;
 }
-Player::Player(string hoten, string ngaysinh, string noisinh, string quoctich, double luong,string id, string tongiao, string l, double s, vector<string> b, double v, bool su, string sk, int e, int g, bool ba) 
-	: Person(hoten, ngaysinh, noisinh, quoctich, luong)
+Player::~Player()
+{
+
+}
+Player::Player(string hoten, string ngaysinh, string quoctich, double luong, string id,  string l, double s, vector<string> b, double v, bool su, string sk, int e, int g) 
+	: Person(hoten, ngaysinh, quoctich, id, luong)
 {
 	m_Position = l;
 	m_Coefficient = s;
@@ -22,7 +26,6 @@ Player::Player(string hoten, string ngaysinh, string noisinh, string quoctich, d
 	m_Skill = sk;
 	m_Experience = e;
 	m_Goal = g;
-	m_Ban = ba;
 }
 
 void Player::Input(){

@@ -122,9 +122,4 @@ double Person::getSalary()
 {
 	return m_Salary;
 }
-// Team& Person::getTeam();
 
-double Person::calcSalary()
-{
-	return m_Salary;
-}

@@ -15,7 +15,7 @@ Manager::Manager(string name,string dob,string nationality,string id,double sala
 	this->m_Experience=experience;
 	this->m_Coefficient=coefficient;
 	this->m_Skills=skills;
-	this->m_Coach=new Coach;
+	this->m_Coach = c;
 }
 
 Manager::~Manager()
@@ -65,7 +65,7 @@ Coach& Manager::getCoach()
 }
 
 
-void Manager::Fire(int num)
+void Manager::fire(int num)
 {
 	string temp;
 	cout<<"Choose role of person you want to fire:";
@@ -81,7 +81,7 @@ void Manager::Fire(int num)
 			cout<<"You have entered wrong role"<<endl;
 }
 
-void Manager::Recruit(int num)
+void Manager::recruit(int num)
 {
 	string temp;
 	cout<<"Choose role of person you want to recruit:";

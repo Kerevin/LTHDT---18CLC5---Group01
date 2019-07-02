@@ -14,8 +14,8 @@ private:
 	bool m_Ban; //Cấm thi đấu hay không
 public:
 	Player();
-	Player(string, string, string, string, double, string, string, string, double , vector<string>, double, bool, string, int, int, bool);
-
+	Player(string, string, string, double, string, string, double , vector<string>, double, bool, string, int, int);
+	~Player();
 	void Input();
 	void Output();
 	void setInfo(string, string, double, double);//Gán vị trí, đội tuyển, kỹ năng, mức lương, giá trị cầu thủ

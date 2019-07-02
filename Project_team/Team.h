@@ -2,6 +2,7 @@
 #include "Finance.h"
 #include "Coach.h"
 #include "Player.h"
+#include "Stadium.h"
 class Team 
 {
 private:
@@ -9,14 +10,13 @@ private:
 	string m_ID;
 	string m_Logo;
 	string m_EstablishedDate;
+	Stadium * m_Stadium;
 	vector <Person *> m_Sponsors;
 	int numSponsors; 
 	vector <Player *> m_Player;
 	int numPlayers;
-	vector <Coach *> m_Coach;
-	int numCoach;
+	Coach * m_Coach;
 	Finance *m_Finance;
-
 	vector<string> m_Achievements;
 	int numAchievement;
 public:
@@ -25,17 +25,18 @@ public:
 	~Team();
 
 //Function:
-	void setNumPlayers(int num);
-	int getNumPlayers();
 	double getFinanceBudget();
 	void setFinanceBudget(double bud);
+	void setStadium(Stadium *);
+	void setStadium();
+
 	Finance& getFinance();
 	double TotalSalary();//Tính t?ng luong các c?u th?
 	void Input();
 	void Output();
 	void printInfo();
 	void printAchievements();
-	void Add(int);
+	void addPerson(int);
 	void inputPlayersList();
 	void Dissolution();
 

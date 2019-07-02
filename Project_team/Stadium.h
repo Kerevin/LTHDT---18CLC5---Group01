@@ -1,9 +1,10 @@
 #pragma once
-#include "Person.h"
-
+#include <string>
+#include <iostream>
+#include <vector>
 using namespace std;
 
-class STD //Class Stadium
+class Stadium 
 {
 private:
 	string m_Name;
@@ -12,11 +13,11 @@ private:
 	double m_Capacity;
 public:
 	//Constructor:
-	STD();
-	STD(string name);
-	STD(string name, string add);
-	STD(string name, string add, string kind);
-	STD(string name, string add, string kind, double capacity);
+	Stadium();
+	Stadium(string name);
+	Stadium(string name, string add);
+	Stadium(string name, string add, string kind);
+	Stadium(string name, string add, string kind, double capacity);
 	//Function:
 	void Input();
 	void Output();

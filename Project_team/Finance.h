@@ -1,24 +1,26 @@
 ﻿#pragma once
-#include "Stadium.h"
+#include <string>
+#include <iostream>
+#include <vector>
+using namespace std;
 class Finance
 {
 private:
 	double m_Budget;//Số tiền có trong tài khoản
-	string m_Doc;//Current Documents
-	string m_His;//Spending History
-	string m_Sup;//Supply Sources
+	vector <string> m_SpedingHistory;//Spending History
+	
 public:
-	//Constructor:
+
 	Finance();
-	Finance(string doc);
-	Finance(string doc, string his);
-	Finance(string doc, string his, string sup);
-	Finance(double bud,string doc, string his, string sup);
+	Finance(double bud);
+	~Finance();
 	//Function:
-	void setBudget(double bud);
+	void addMoney(double );
 	double getBudget();
 	void Input();
 	void Output();
-	double calMoney();//Bổ sung sau sau khi nhóm trưởng duyệt
-	bool checkFinance();//Bổ sung sau sau khi nhóm trưởng duyệt
+	void makeTransaction(string, string, double );
+	void showHistory();
+	
+	
 };

@@ -1,13 +1,12 @@
 #pragma once
 #include "Person.h"
 
-
 class Coach: public Person
 {
 private:
 	double m_Coefficient;//He so muc luong
 	int m_Experience;//so nam kinh nghiem
-	int m_numTeam;//so m_Coefficient m_Team bong da lam viec
+	int m_numTeam;//so doi da lam viec
 	vector <string> m_Achievement;//cac thanh tich dat dc
 	int m_numAchieve;
 public:

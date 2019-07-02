@@ -25,7 +25,7 @@ public:
 //Phan function
 	void Input();
 	void Output();
-	void Pay();
-	void Fire(int num);//Sa thai cau thu(num la so luong cau thu)
-	void Recruit(int );
+	void paySalary();
+	void fire(int num);
+	void recruit(int );
 };
