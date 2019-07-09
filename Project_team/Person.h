@@ -20,21 +20,21 @@ public:
 	Person(string, string);
 	Person(string);
 	Person(const Person &);
-	~Person();
+	virtual ~Person();
 
-	void Input();
-	void Output();
+	virtual void Input();
+	virtual void Output();
 
-	void setName(string);
-	void setDoB(string);
-	void setNationality(string);
-	void setID(string);
-	void setSalary(double);
+	virtual void setName(string);
+	virtual void setDoB(string);
+	virtual void setNationality(string);
+	virtual void setID(string);
+	virtual void setSalary(double);
 
-	string getName();
-	string getDoB();
-	string getNationality();
-	string getID();
-	double getSalary();
+	virtual string getName();
+	virtual string getDoB();
+	virtual string getNationality();
+	virtual string getID();
+	virtual double getSalary();
 
 };

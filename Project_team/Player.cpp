@@ -3,7 +3,6 @@
 Player::Player() {
 	m_Position = "Unknown";
 	m_Coefficient = 0;
-	m_PenaltyCards.resize(5);
 	m_Value = 0;
 	m_Substitute = false;
 	m_Skill = "Unknown";
@@ -30,54 +29,55 @@ Player::Player(string hoten, string ngaysinh, string quoctich, double luong, str
 
 void Player::Input(){
 
-	string x, y,pos,skills;
 	Person::Input();
-	double sal,val;
-	int goals,exp;
-	cout<< "Position in team: ";
-	getline(cin, pos);
-	this->m_Position=pos;
 
+	cout<< "Position in team: ";
+	getline(cin, m_Position);
 	cout<< "Value :";
-	cin>> val;
-	m_Value=val;
-	cin.ignore();
+	cin>> m_Value;
+	cin.ignore(1);
+
+	string choice;
 	cout<< "Substitute(y/n): ";
-	getline(cin, x);
-	if (x == "y")
+	getline(cin, choice);
+	if (choice == "y" || choice == "Y")
 		m_Substitute = true;
 	else
 		m_Substitute = false;
 
-	cout << "Ban(y/n): ";
-	getline(cin, y);
+	cout << "Ban (y/n): ";
+	getline(cin, choice);
 
 	//Xet xem cau thu co bi ban khong
-	if (y == "y" || y == "Y")
+	if (choice == "y" || choice == "Y")
 		m_Ban = true;
 	else
 		m_Ban = false;
 
 	cout<<"Skills: ";
-	getline(cin, skills);
-	this->m_Skill=skills;
+	getline(cin, m_Skill);
 
-	cout<<"Experiences: ";
-	cin>>exp;
-	this->m_Experience=exp;
-	cin.ignore();
+
+	cout<<"Years of experience: ";
+	cin>> m_Experience;
+	cin.ignore(1);
+
 	cout<<"Number of goals: ";
-	cin>>goals;
-	cin.ignore();
+	cin >> m_Goal;
+	cin.ignore(1);
 }
 void Player::Output() {
 
-	
-	cout<<"Location: "<<m_Position<<endl;
-	cout<<"Salary: "<<m_Coefficient<<endl;
-	cout<<"Penalty cards: ";
-	for (int i = 0; i < m_PenaltyCards.size(); i++)
-		cout<<m_PenaltyCards[i];
+	Person::Output();
+
+	cout << "Position: " << m_Position << endl;
+	cout << "Salary: " << m_Coefficient << endl;
+	if (m_PenaltyCards.size() > 0)
+	{
+		cout << "Penalty cards: ";
+		for (int i = 0; i < m_PenaltyCards.size(); i++)
+			cout << m_PenaltyCards[i] << endl;
+	}
 	cout<<"Value: "<<m_Value<<endl;
 	cout<<"Substitute: ";
 	if (m_Substitute == true)
@@ -103,12 +103,15 @@ double Player::getSalary()
 {
 	return Person::getSalary() * this->m_Coefficient;
 }
+
 double Player::getValue() {
 	return m_Value;
 }
+
 string Player::getPosition() {
 	return m_Position;
 }
+
 bool Player::changeCoefficient(int x, double money) {
 	if (x == 1)
 	{

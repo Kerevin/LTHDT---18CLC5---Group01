@@ -31,12 +31,13 @@ public:
 	void setStadium();
 
 	Finance& getFinance();
-	double TotalSalary();//Tính t?ng luong các c?u th?
+	double calcTotalSalary();
 	void Input();
 	void Output();
 	void printInfo();
 	void printAchievements();
-	void addPerson(int);
+	void printPlayersList();
+	void addPerson();
 	void inputPlayersList();
 	void Dissolution();
 

@@ -1,17 +1,17 @@
 ﻿#include "Team.h"
+
 Team::Team () {
+
 	 m_Name = "Unknown";
 	 m_ID = "Unknown";
 	 m_Logo = "Unknown";
 	 m_EstablishedDate = "Unknown";
 	 m_Stadium = NULL;
-	 numSponsors = 20;
-	 numPlayers = 20;
-	 m_Sponsors.resize(20);
-	 m_Player.resize(20);
-	 m_Coach = NULL;
-	 m_Achievements.resize(20);
+	 this->numSponsors = 0;
+	 this->numPlayers = 0;
+	 m_Coach = new Coach();
 }
+
 Team::Team(string n, string i, string l, string b)
 {
 	m_Name = n;
@@ -19,81 +19,117 @@ Team::Team(string n, string i, string l, string b)
 	m_Logo = l;
 	m_EstablishedDate = b;
 	m_Stadium = NULL;
-	numSponsors = 20;
-	numPlayers = 20;
-	m_Sponsors.resize(20);
-	m_Player.resize(20);
-	m_Coach = NULL;
-	m_Achievements.resize(20);
+	numSponsors = 0;
+	numPlayers = 0;
+	m_Coach = new Coach();
 }
+
 Team::~Team() 
 {
 
 }
-void Team::Output() 
+
+void Team::Output()
 {
-	cout << "List of teams:" << endl;
-	for (int i = 0; i < m_Player.size(); i++)
+	printInfo();
+	cout << endl;
+	printAchievements();
+	cout << endl;
+	printPlayersList();
+	cout << endl;
+	cout << "Coach: " << m_Coach->getName();
+}
+
+void Team::printPlayersList()
+{
+	cout <<"Number player: "<< numPlayers << endl;
+	if (numPlayers > 0)
 	{
-		 m_Player[i]->Output();
-		 cout << endl;
+		cout << "List of players in my teams: " << endl;
+		for (int i = 0; i < numPlayers; i++)
+		{
+			m_Player[i]->Output();
+			cout << endl;
+		}
+	}
+	else
+	{
+		cout << "There is no player in your team!" << endl;
 	}
 }
+
 void Team::printInfo() {
-	cout << "Information: " << endl;
-	cout << "Name: " << m_Name << endl;
+	cout << "Name of team: " << m_Name << endl;
 	cout << "ID: " << m_ID << endl;
 	cout << "Logo: " << m_Logo << endl;
 	cout << "Established Date: " << m_EstablishedDate << endl;
 }
+
 void Team::printAchievements() {
-	cout << "Achievements:" << endl;
-	for (int i = 0; i < m_Achievements.size(); i++)
-		cout << m_Achievements[i] << endl;
+	if (numAchievement > 0)
+	{
+		cout << "Achievements we have got:" << endl;
+		for (int i = 0; i < numAchievement; i++)
+			cout << m_Achievements[i] << endl;
+	}
 }
+
 void Team::setStadium(Stadium * s)
 {
 	if (m_Stadium != NULL)
 	{
-		delete[] m_Stadium;
+		delete m_Stadium;
 	}
 	m_Stadium = s;
 	
 }
+
 void Team::setStadium()
 {
 	if (m_Stadium != NULL)
 	{
-		delete[] m_Stadium;
+		delete m_Stadium;
 	}
 	m_Stadium = new Stadium;
 	m_Stadium->Input();
 
 }
+
 Finance& Team::getFinance()
 {
 	return *this->m_Finance;
 }
-void Team::addPerson(int x) {
-	//Thêm một người vào đội
 
-	if (x == 2){
-		// Thêm player
-		Player* c;
-		c->Input();
-		m_Player.push_back(c);
+void Team::addPerson() {
+	Person * p;
+	int ch;
+	cout << "Position that you want to recruit: ";
+	do
+	{
+		cout << endl << "(1: Coach; 2: Player)";
+		cin >> ch;
+	} while (ch > 2);
+	cin.ignore(1);
+	if (ch == 1)
+	{
+		p = new Coach();
 	}
-	else if (x == 3){
+	else
+	{
+		p = new Player();
+		m_Player.push_back((Player *) p);
+		numPlayers++;
 
-		// Thêm Coach
-		if (m_Coach != NULL)
-			delete[] m_Coach;
-		m_Coach = new Coach;
-		m_Coach->Input();
 	}
+	p->Input();
 }
 
 void Team::Dissolution() {
+	// -------------------- //
+
+	// Hàm này đéo cứu được //
+
+	// -------------------- //
 	m_Name = "Unknown";
 	m_ID = "Unknown";
 	m_Logo = "Unknown";
@@ -103,7 +139,7 @@ void Team::Dissolution() {
 	m_Achievements.clear();
 }	  
 
-double Team::TotalSalary()
+double Team::calcTotalSalary()
 {
 	double total=0;
 	for(int i=0; i< this->numPlayers; i++)
@@ -116,6 +152,7 @@ void Team::setFinanceBudget(double bud)
 {
 	this->m_Finance-> addMoney(bud);
 }
+
 double Team::getFinanceBudget()
 {
 	return this->m_Finance->getBudget();
@@ -141,35 +178,32 @@ void Team::Input()
 
 	cout << "Enter number of sponsors: ";
 	cin >> numSponsors;
-	if (numSponsors > 20) m_Sponsors.resize(numSponsors);
+;
 	for (int i = 0; i < numSponsors; i++)
 	{
-		m_Sponsors[i] = new Person;
-		m_Sponsors[i]->Input();
+		Person * p = new Person;
+		p->Input();
+		m_Sponsors.push_back(p);
 	}
 
-	if (m_Coach != NULL)
-		delete[] m_Coach;
 	m_Coach = new Coach;
 	m_Coach->Input();
 
 	cout << "Enter finance status: ";
 	m_Finance->Input();
 
-
 }
 
 void Team::inputPlayersList()
 {
-	int numPlayers;
+	// Tạo danh sách Players //
 	cout << "Enter number of players: ";
-	cin >> numPlayers;
-	cin.ignore();
-	if (numPlayers > 20) m_Player.resize(numPlayers);
-	for (int i = 0; i < numPlayers; i++)
+	cin >> this->numPlayers;
+	cin.ignore(1);
+	for (int i = 0; i < this->numPlayers; i++)
 	{
-		m_Player[i] = new Player;
-		m_Player[i]->Input();
+		Player * p = new Player();
+		p->Input();
+		m_Player.push_back(p);
 	}
-
 }

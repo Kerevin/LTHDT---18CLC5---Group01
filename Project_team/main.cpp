@@ -1,14 +1,24 @@
-#include "Manager.h"
+﻿#include "Manager.h"
 
 void main()
 {
-	Team * Cac = new Team("Cac Club","001","ConCuBeNho","01/07/2019");
 	
-	Cac->inputPlayersList();
-	
-	Cac->printInfo();
+	Team * Restudy = new Team("Restudy","001","ConCuBeNho","01/07/2019");
+	Manager * manager1 = new Manager();
 
-	delete[] Cac;
+	manager1->Input();
+	manager1->setTeam(Restudy);
+
+	Restudy->Output();
+	cout << endl;
+	Restudy->addPerson();
+	Restudy->Output();
+
+
+	// Khoa code đỉnh Vô Cùng Luôn //
+	delete Restudy;
+	delete manager1;
+	cout << endl;
 	system("pause");
 
 }

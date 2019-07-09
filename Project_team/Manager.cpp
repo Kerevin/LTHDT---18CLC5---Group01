@@ -1,21 +1,19 @@
-#include "Manager.h"
+﻿#include "Manager.h"
 
 Manager::Manager(void)
 {
 	this->m_Experience=0;
 	this->m_Coefficient=0;
 	this->m_Skills="";
-
-	this->m_Coach=new Coach;
 }
 
-Manager::Manager(string name,string dob,string nationality,string id,double salary,int experience,double coefficient,string skills, Coach *c)
-	: Person(name,dob,nationality,id,salary)
+Manager::Manager(string name, string dob, string nationality, string id, 
+	             double salary, int experience,double coefficient,string skills)
+	: Person(name, dob, nationality, id, salary)
 {
 	this->m_Experience=experience;
 	this->m_Coefficient=coefficient;
 	this->m_Skills=skills;
-	this->m_Coach = c;
 }
 
 Manager::~Manager()
@@ -38,11 +36,6 @@ void Manager::setSkills(string sk)
 	this->m_Skills=sk;
 }
 
-void Manager::setCoach(Coach *c)
-{
-	this->m_Coach=c;
-}
-
 int Manager::getExperience()
 {
 	return this->m_Experience;
@@ -57,13 +50,6 @@ string Manager::getSkills()
 {
 	return this->m_Skills;
 }
-
-
-Coach& Manager::getCoach()
-{
-	return *(this->m_Coach);
-}
-
 
 void Manager::fire(int num)
 {
@@ -94,4 +80,45 @@ void Manager::recruit(int num)
 		else if(temp=="Coach" || temp== "coach" || temp=="Coaches" || temp =="coaches")
 			x=3;;
 	
+}
+
+void Manager::setTeam(Team *t)
+{
+	m_Team = t;
+}
+
+
+void Manager::Input()
+{
+	Person::Input();
+	cout << "Enter Experience: ";
+	cin >> m_Experience;
+	cout << "Enter Coefficient: ";
+	cin >> m_Coefficient;
+	cin.ignore(1);
+
+	// ----------------------------------------
+	// Nếu không khởi tạo một Team trong hàm main thì sẽ khởi tạo ở đây
+	// Quản lý team sẽ thông qua Manager luôn 
+	// ----------------------------------------
+
+	if (m_Team != NULL)
+	{
+		m_Team = new Team();
+		m_Team->Input();
+	}
+}
+
+void Manager::Output()
+{
+	cout << "*** My current team's information ***" << endl; 
+	m_Team->printInfo();
+
+}
+
+void Manager::printInfo()
+{
+	Person::Output();
+	cout << "Experience: " << m_Experience << endl;
+	cout << "Value: " << m_Coefficient << endl;
 }

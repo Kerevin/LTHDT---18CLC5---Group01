@@ -76,7 +76,7 @@ void Coach::Input()
 	cout<<"Enter the coefficient:";
 	cin>>coefficient;
 	this->setCoefficient(m_Coefficient);
-	cout<<"Enter years of experience";
+	cout<<"Enter years of experience: ";
 	cin>>experience;
 	this->setExperience(experience);
 
@@ -86,6 +86,7 @@ void Coach::Input()
 
 	cout<<"Enter number of achievements :";
 	cin>>achieve;
+	cin.ignore(1);
 	string temp;
 	for(int i=0;i< achieve; i++)
 	{
