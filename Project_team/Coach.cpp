@@ -7,7 +7,7 @@ Coach::Coach(void)
 	this->m_Experience=0;
 	this->m_numTeam=0;
 	this->m_numAchieve=0;
-	this->m_Achievement.resize(1);
+
 }
 
 Coach::Coach(string name,string dob,string nationality,string id,double salary, double coefficient,int experience,int achieve,int m_numTeam)
@@ -17,7 +17,7 @@ Coach::Coach(string name,string dob,string nationality,string id,double salary, 
 	this->m_Experience=experience;
 	this->m_numAchieve=achieve;
 	this->m_numTeam=m_numTeam;
-	this->m_Achievement.resize(m_numAchieve+1);
+	this->m_Achievement.resize(m_numAchieve + 1);
 
 }
 
@@ -42,7 +42,7 @@ Coach& Coach::operator = (Coach &c)
 	this->m_Experience=c.m_Experience;
 	this->m_numTeam=c.m_numTeam;
 	this->m_numAchieve=c.m_numAchieve;
-
+	m_Achievement.resize(m_numAchieve);
 	for(int i=0;i< m_numAchieve; i++)
 		this->m_Achievement[i]=c.m_Achievement[i];
 	return *this;
@@ -70,43 +70,42 @@ void Coach::setCoefficient(double coefficient)
 
 void Coach::Input()
 {
-	double coefficient;
-	int achieve,experience,numTeam;
+	int experience,numTeam;
 	Person::Input();
+
 	cout<<"Enter the coefficient:";
-	cin>>coefficient;
-	this->setCoefficient(m_Coefficient);
+	cin>> m_Coefficient;;
+
 	cout<<"Enter years of experience: ";
-	cin>>experience;
-	this->setExperience(experience);
+	cin>>  m_Experience;
 
 	cout<<"Enter number of teams this coach has worked for:";
-	cin>>numTeam;
+	cin>> m_numTeam;
 
 
 	cout<<"Enter number of achievements :";
-	cin>>achieve;
+	cin>> this->m_numAchieve;
 	cin.ignore(1);
-	string temp;
-	for(int i=0;i< achieve; i++)
+	for(int i=0;i< m_numAchieve; i++)
 	{
-		cout<<"Achievement No. "<<i+1<<" :";
-		getline(cin,temp);
-		this->m_Achievement[i]=temp;
-		temp="";
+		string temp;
+		cout<<"Achievement No." << i + 1 <<" :";
+		getline(cin, temp);
+		this->m_Achievement.push_back(temp);
+		
 	}
 
 }
 
 void Coach::Output()
 {
-	cout<<"------------------------------------------"<<endl;
+	cout << "------------------------------------------" << endl;
 	Person::Output();
-	cout<<"			Information about Coach			";
-	cout<<"Coefficient: "<<this->m_Coefficient;
-	cout<<"Experience: "<<this->m_Experience;
-	cout<<"Info of teams that he/she has worked for : "<<endl;
-	cout<<"Achievements :"<<endl;
-	for(int i=0;i< m_numAchieve; i++)
-		cout<<"Achievement No. "<<i+1<<" :"<<m_Achievement[i];
+	cout << "			Information about Coach			";
+	cout << "Coefficient: " << this->m_Coefficient;
+	cout << "Experience: " << this->m_Experience;
+	cout << "Info of teams that he/she has worked for : " << endl;
+	cout << "Achievements :" << endl;
+	for (int i = 0; i < m_numAchieve; i++)
+		cout << "Achievement No. " << i + 1 << " :" << m_Achievement[i];
 }

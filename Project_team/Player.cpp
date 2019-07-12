@@ -38,6 +38,7 @@ void Player::Input(){
 	cin.ignore(1);
 
 	string choice;
+
 	cout<< "Substitute(y/n): ";
 	getline(cin, choice);
 	if (choice == "y" || choice == "Y")
@@ -53,6 +54,14 @@ void Player::Input(){
 		m_Ban = true;
 	else
 		m_Ban = false;
+	do {
+		cout << "Substitute(y/n): ";
+		getline(cin, choice);
+		if (choice == "y" || choice == "Y")
+			m_Substitute = true;
+		else
+			m_Substitute = false;
+	} while (choice != "Y" && choice != "y" && choice != "N" && choice != "n");
 
 	cout<<"Skills: ";
 	getline(cin, m_Skill);
@@ -125,6 +134,8 @@ bool Player::changeCoefficient(int x, double money) {
 		m_Coefficient -= money;
 		return true;
 	}
+
+	return true;
 }
 void Player::changeSubstitute() {
 	if (m_Substitute == true)

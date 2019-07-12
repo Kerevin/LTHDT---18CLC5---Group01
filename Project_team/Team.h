@@ -11,7 +11,8 @@ private:
 	string m_Logo;
 	string m_EstablishedDate;
 	Stadium * m_Stadium;
-	vector <Person *> m_Sponsors;
+
+	vector <Person *> m_Sponsors;	//Lam on k sa thai sponsors :))
 	int numSponsors; 
 	vector <Player *> m_Player;
 	int numPlayers;
@@ -24,21 +25,45 @@ public:
 	Team(string n, string i, string l, string b);
 	~Team();
 
-//Function:
+
+	 // --------------------- //
+    //    About finance      //
+   //   ------------------  //
+	double calcTotalSalary();
 	double getFinanceBudget();
 	void setFinanceBudget(double bud);
+	Finance& getFinance();
+
+
+	// --------------------- //
+   //    About stadium      //
+  //   ------------------  //
 	void setStadium(Stadium *);
 	void setStadium();
 
-	Finance& getFinance();
-	double calcTotalSalary();
+
+	// --------------------- //
+   //    About Employee     //
+  //   ------------------  //
+	int getNumPlayers();
+	void FirePlayer(string id);
+	void FireCoach();	//Team only have 1 coach so we don't have to compare the id 
+	void RecruitPlayer();
+	void RecruitCoach();
+	void addPerson();
+
+
+	// --------------------- //
+   //    About I-O          //
+  //   ------------------  //
 	void Input();
 	void Output();
 	void printInfo();
 	void printAchievements();
 	void printPlayersList();
-	void addPerson();
 	void inputPlayersList();
+
+
 	void Dissolution();
 
 };

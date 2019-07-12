@@ -29,4 +29,6 @@ public:
 	void printInfo();
 	void fire(int num);
 	void recruit(int );
+	void Fire();
+	void Recruit();
 };

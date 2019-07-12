@@ -7,11 +7,17 @@ void main()
 	Manager * manager1 = new Manager();
 
 	manager1->Input();
+
+
 	manager1->setTeam(Restudy);
 
 	Restudy->Output();
 	cout << endl;
 	Restudy->addPerson();
+	manager1->Recruit();
+	manager1->Fire();
+	manager1->Output();
+
 	Restudy->Output();
 
 

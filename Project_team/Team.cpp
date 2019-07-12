@@ -95,6 +95,12 @@ void Team::setStadium()
 
 }
 
+
+
+int Team::getNumPlayers()
+{
+	return this->numPlayers;
+}
 Finance& Team::getFinance()
 {
 	return *this->m_Finance;
@@ -122,6 +128,49 @@ void Team::addPerson() {
 
 	}
 	p->Input();
+	cout << "Position that you want to recruit " << endl;
+	do
+	{
+		cout << endl << "(1: Coach; 2: Player): ";
+		cin >> ch;
+	} while (ch > 2 || ch < 1);
+	cin.ignore(1);
+	if (ch == 1)
+	{
+		string answer;
+		do {
+			cout << "To Recruit a new coach, you have to fire the coach working in your team, do you sure about this? (Y/N):";
+			getline(cin, answer);
+		} while (answer != "Y" && answer != "y" && answer != "N" && answer != "n" && answer != "Yes" &&
+			answer != "yes" && answer != "No" && answer != "no");
+		if (answer == "Yes" || answer == "yes" || answer == "YES" || answer == "Y" || answer == "y")
+		{
+			p = new Coach();
+			p->Input();
+			m_Coach = (Coach *)p;
+		}
+		else
+			return;
+	}
+	else
+	{
+		int num = 0;
+		do {
+			cout << "Enter number of players you want to recruit:";
+			cin >> num;
+			cin.ignore();
+			if (num <= 0)
+				cout << "Number of players you want to recruit has to be an positive integer." << endl;
+		} while (num <= 0);
+		for (int i = 0; i < num; i++)
+		{
+			p = new Player();
+			p->Input();
+			m_Player.push_back((Player *)p);
+			numPlayers++;
+		}
+	}
+
 }
 
 void Team::Dissolution() {
@@ -206,4 +255,49 @@ void Team::inputPlayersList()
 		p->Input();
 		m_Player.push_back(p);
 	}
+
 }
+
+void Team::FirePlayer(string id)
+{
+	bool found = false;
+		for (int i = 0; i < this->numPlayers; i++)
+		{
+			if (this->numPlayers == 0)
+				break;
+			else
+				if (this->m_Player[i]->getID().compare(id) == 0)
+				{
+					this->m_Player.erase(this->m_Player.begin() + i);
+					found = true;
+					this->numPlayers--;
+				}
+		}
+		if(this->numPlayers==0)
+				cout << " All the player in the team has been fired." << endl;
+		if (!found)
+			cout << "You have entered the id that does not exist." << endl;
+}
+
+void Team::FireCoach()
+{
+	this->m_Coach = new Coach();
+}
+
+void Team::RecruitPlayer()
+{
+	int num = 0;
+	do {
+		cout << "Enter number of players you want to recruit:";
+		cin >> num;
+		if (num <= 0)
+			cout << "Number of players you want to recruit has to be an positive integer." << endl;
+	} while (num <= 0);
+	for (int i = 0; i < num; i++)
+	{
+		Player *p = new Player;
+		p->Input();
+		m_Player.push_back(p);
+	}
+}
+

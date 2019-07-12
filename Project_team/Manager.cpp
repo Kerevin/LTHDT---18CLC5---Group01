@@ -82,6 +82,7 @@ void Manager::recruit(int num)
 	
 }
 
+
 void Manager::setTeam(Team *t)
 {
 	m_Team = t;
@@ -90,6 +91,7 @@ void Manager::setTeam(Team *t)
 
 void Manager::Input()
 {
+	cout << "*** Manger's information *** " << endl;
 	Person::Input();
 	cout << "Enter Experience: ";
 	cin >> m_Experience;
@@ -121,4 +123,50 @@ void Manager::printInfo()
 	Person::Output();
 	cout << "Experience: " << m_Experience << endl;
 	cout << "Value: " << m_Coefficient << endl;
+}
+
+
+void Manager::Fire()
+{
+	cout << "Enter role you want to fire" <<endl;
+	int role=0;
+	do {
+		cout << "(1 : Coach ; 2 : Player) : ";
+		cin >> role;
+	} while (role != 1 && role != 2);
+		if (role ==2)
+	{
+		if (this->m_Team != NULL)
+		{
+			if (this->m_Team->getNumPlayers() == 0)
+			{
+				cout << "There is no player in your team to fire!" << endl;
+			}
+			else
+			{
+				int num = 0;
+				do {
+					cout << "Enter number of player you want to fire: ";
+					cin >> num;
+					if (num <= 0)
+						cout << "Number of players you want to fire has to be an positive integer." << endl;
+				} while (num <= 0);
+				for (int i = 0; i < num; i++)
+				{
+					string id;
+					cin.ignore();
+					cout << "Enter player's id you want to fire:";
+					getline(cin, id);
+					this->m_Team->FirePlayer(id);
+				}
+			}
+		}
+	}
+	else
+		this->m_Team->FireCoach();
+}
+
+void Manager::Recruit()
+{
+	this->m_Team->addPerson();
 }
