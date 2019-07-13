@@ -8,7 +8,6 @@ class Team
 private:
 	string m_Name;
 	string m_ID;
-	string m_Logo;
 	string m_EstablishedDate;
 	Stadium * m_Stadium;
 
@@ -22,7 +21,7 @@ private:
 	int numAchievement;
 public:
 	Team();
-	Team(string n, string i, string l, string b);
+	Team(string n, string i, string b);
 	~Team();
 
 

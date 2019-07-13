@@ -4,21 +4,19 @@ Team::Team () {
 
 	 m_Name = "Unknown";
 	 m_ID = "Unknown";
-	 m_Logo = "Unknown";
 	 m_EstablishedDate = "Unknown";
-	 m_Stadium = NULL;
+	 m_Stadium = new Stadium();
 	 this->numSponsors = 0;
 	 this->numPlayers = 0;
 	 m_Coach = new Coach();
 }
 
-Team::Team(string n, string i, string l, string b)
+Team::Team(string n, string i,string b)
 {
 	m_Name = n;
 	m_ID = i;
-	m_Logo = l;
 	m_EstablishedDate = b;
-	m_Stadium = NULL;
+	m_Stadium = new Stadium();
 	numSponsors = 0;
 	numPlayers = 0;
 	m_Coach = new Coach();
@@ -35,9 +33,8 @@ void Team::Output()
 	cout << endl;
 	printAchievements();
 	cout << endl;
-	printPlayersList();
 	cout << endl;
-	cout << "Coach: " << m_Coach->getName();
+	cout << "Current coach: " << m_Coach->getName() << endl;
 }
 
 void Team::printPlayersList()
@@ -61,7 +58,6 @@ void Team::printPlayersList()
 void Team::printInfo() {
 	cout << "Name of team: " << m_Name << endl;
 	cout << "ID: " << m_ID << endl;
-	cout << "Logo: " << m_Logo << endl;
 	cout << "Established Date: " << m_EstablishedDate << endl;
 }
 
@@ -181,7 +177,6 @@ void Team::Dissolution() {
 	// -------------------- //
 	m_Name = "Unknown";
 	m_ID = "Unknown";
-	m_Logo = "Unknown";
 	m_EstablishedDate = "Unknown";
 	m_Sponsors.clear();
 	m_Player.clear();
@@ -217,9 +212,6 @@ void Team::Input()
 	cin.ignore();
 	getline(cin, m_ID);
 
-	cout << "Enter ID: ";
-	cin.ignore();
-	getline(cin, m_ID);
 
 	cout << "Enter date of establishment: ";
 	cin.ignore();
@@ -235,11 +227,6 @@ void Team::Input()
 		m_Sponsors.push_back(p);
 	}
 
-	m_Coach = new Coach;
-	m_Coach->Input();
-
-	cout << "Enter finance status: ";
-	m_Finance->Input();
 
 }
 
@@ -281,6 +268,8 @@ void Team::FirePlayer(string id)
 
 void Team::FireCoach()
 {
+	if (m_Coach != NULL)
+		delete m_Coach;
 	this->m_Coach = new Coach();
 }
 

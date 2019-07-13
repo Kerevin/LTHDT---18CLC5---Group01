@@ -67,21 +67,6 @@ void Manager::fire(int num)
 			cout<<"You have entered wrong role"<<endl;
 }
 
-void Manager::recruit(int num)
-{
-	string temp;
-	cout<<"Choose role of person you want to recruit:";
-	getline(cin,temp);
-	int x;
-	if(temp=="Manager" || temp=="manager" || temp== "Managers" || temp== "managers")
-		x=1;
-	else if(temp== "Player" || temp== "player" || temp== "Players" || temp=="players")
-		x=2;
-		else if(temp=="Coach" || temp== "coach" || temp=="Coaches" || temp =="coaches")
-			x=3;;
-	
-}
-
 
 void Manager::setTeam(Team *t)
 {
@@ -93,8 +78,10 @@ void Manager::Input()
 {
 	cout << "*** Manger's information *** " << endl;
 	Person::Input();
+
 	cout << "Enter Experience: ";
 	cin >> m_Experience;
+
 	cout << "Enter Coefficient: ";
 	cin >> m_Coefficient;
 	cin.ignore(1);
@@ -104,20 +91,24 @@ void Manager::Input()
 	// Quản lý team sẽ thông qua Manager luôn 
 	// ----------------------------------------
 
-	if (m_Team != NULL)
+	if (m_Team == NULL)
 	{
 		m_Team = new Team();
 		m_Team->Input();
 	}
 }
 
-void Manager::Output()
+void Manager::outputTeam()
 {
 	cout << "*** My current team's information ***" << endl; 
 	m_Team->printInfo();
 
 }
-
+void Manager::printPlayersList()
+{
+	m_Team->printPlayersList();
+	cout << endl;
+}
 void Manager::printInfo()
 {
 	Person::Output();

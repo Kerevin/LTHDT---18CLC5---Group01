@@ -24,7 +24,8 @@ public:
 	
 //Phan function
 	void Input();
-	void Output();
+	void outputTeam();
+	void printPlayersList();
 	void paySalary();
 	void printInfo();
 	void fire(int num);

@@ -65,6 +65,7 @@
   <ItemGroup>
     <ClInclude Include="Coach.h" />
     <ClInclude Include="Finance.h" />
+    <ClInclude Include="Interface.h" />
     <ClInclude Include="Manager.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="Player.h" />
@@ -74,6 +75,7 @@
   <ItemGroup>
     <ClCompile Include="Coach.cpp" />
     <ClCompile Include="Finance.cpp" />
+    <ClCompile Include="Interface.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Manager.cpp" />
     <ClCompile Include="Person.cpp" />

@@ -10,7 +10,7 @@ private:
 	vector <string> m_Achievement;//cac thanh tich dat dc
 	int m_numAchieve;
 public:
-//Phan constructor va destructor
+
 	Coach();
 	Coach(string name,string dob,string nationality,string id,double salary,double coefficient,int experience,int achieve,int m_numTeam);
 	Coach(Coach &);
