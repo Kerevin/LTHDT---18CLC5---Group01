@@ -22,14 +22,16 @@ public:
 	double getCoefficient();
 	string getSkills();
 	
-//Phan function
 	void Input();
 	void outputTeam();
+
 	void printPlayersList();
-	void paySalary();
+	void printCoachInfo();
 	void printInfo();
-	void fire(int num);
+
+	void paySalary();
+
 	void recruit(int );
+	void fire(int);
 	void Fire();
-	void Recruit();
 };

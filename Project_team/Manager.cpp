@@ -51,28 +51,10 @@ string Manager::getSkills()
 	return this->m_Skills;
 }
 
-void Manager::fire(int num)
-{
-	string temp;
-	cout<<"Choose role of person you want to fire:";
-	getline(cin,temp);
-	int x;
-	if(temp=="Manager" || temp=="manager" || temp== "Managers" || temp== "managers")
-		x=1;
-	else if(temp== "Player" || temp== "player" || temp== "Players" || temp=="players")
-		x=2;
-		else if(temp=="Coach" || temp== "coach" || temp=="Coaches" || temp =="coaches")
-			x=3;
-		else
-			cout<<"You have entered wrong role"<<endl;
-}
-
-
 void Manager::setTeam(Team *t)
 {
 	m_Team = t;
 }
-
 
 void Manager::Input()
 {
@@ -91,11 +73,11 @@ void Manager::Input()
 	// Quản lý team sẽ thông qua Manager luôn 
 	// ----------------------------------------
 
-	if (m_Team == NULL)
+	/*if (m_Team == NULL)
 	{
 		m_Team = new Team();
 		m_Team->Input();
-	}
+	}*/
 }
 
 void Manager::outputTeam()
@@ -104,6 +86,7 @@ void Manager::outputTeam()
 	m_Team->printInfo();
 
 }
+
 void Manager::printPlayersList()
 {
 	m_Team->printPlayersList();
@@ -115,7 +98,10 @@ void Manager::printInfo()
 	cout << "Experience: " << m_Experience << endl;
 	cout << "Value: " << m_Coefficient << endl;
 }
-
+void Manager::printCoachInfo()
+{
+	m_Team->printCoachInfo();
+}
 
 void Manager::Fire()
 {
@@ -157,7 +143,31 @@ void Manager::Fire()
 		this->m_Team->FireCoach();
 }
 
-void Manager::Recruit()
+void Manager::fire(int ch)
 {
-	this->m_Team->addPerson();
+	if (ch == 1)
+	{
+		m_Team->FirePlayer("");
+	}
+	else
+	{
+		m_Team->FireCoach();
+	}
+}
+
+void Manager::recruit(int ch)
+{
+	if (ch == 1)
+	{
+		m_Team->RecruitPlayer();
+	}
+	else
+	{
+			m_Team->RecruitCoach();
+	}
+}
+
+void Manager::paySalary()
+{
+	m_Team->calcTotalSalary();
 }

@@ -1,7 +1,7 @@
 #pragma once
 #include "Coach.h"
 
-Coach::Coach(void)
+Coach::Coach() : Person()
 {
 	this->m_Coefficient=0;
 	this->m_Experience=0;
@@ -17,7 +17,6 @@ Coach::Coach(string name,string dob,string nationality,string id,double salary, 
 	this->m_Experience=experience;
 	this->m_numAchieve=achieve;
 	this->m_numTeam=m_numTeam;
-	this->m_Achievement.resize(m_numAchieve + 1);
 
 }
 
@@ -101,11 +100,11 @@ void Coach::Output()
 {
 	cout << "------------------------------------------" << endl;
 	Person::Output();
-	cout << "			Information about Coach			";
-	cout << "Coefficient: " << this->m_Coefficient;
-	cout << "Experience: " << this->m_Experience;
+	cout << "			Information about Coach			" << endl;
+	cout << "Coefficient: " << this->m_Coefficient << endl;
+	cout << "Experience: " << this->m_Experience << endl;
 	cout << "Info of teams that he/she has worked for : " << endl;
 	cout << "Achievements :" << endl;
 	for (int i = 0; i < m_numAchieve; i++)
-		cout << "Achievement No. " << i + 1 << " :" << m_Achievement[i];
+		cout << "Achievement No. " << i + 1 << " :" << m_Achievement[i] << endl;
 }

@@ -55,6 +55,11 @@ void Team::printPlayersList()
 	}
 }
 
+void Team::printCoachInfo()
+{
+	m_Coach->Output();
+}
+
 void Team::printInfo() {
 	cout << "Name of team: " << m_Name << endl;
 	cout << "ID: " << m_ID << endl;
@@ -92,11 +97,11 @@ void Team::setStadium()
 }
 
 
-
 int Team::getNumPlayers()
 {
 	return this->numPlayers;
 }
+
 Finance& Team::getFinance()
 {
 	return *this->m_Finance;
@@ -105,25 +110,6 @@ Finance& Team::getFinance()
 void Team::addPerson() {
 	Person * p;
 	int ch;
-	cout << "Position that you want to recruit: ";
-	do
-	{
-		cout << endl << "(1: Coach; 2: Player)";
-		cin >> ch;
-	} while (ch > 2);
-	cin.ignore(1);
-	if (ch == 1)
-	{
-		p = new Coach();
-	}
-	else
-	{
-		p = new Player();
-		m_Player.push_back((Player *) p);
-		numPlayers++;
-
-	}
-	p->Input();
 	cout << "Position that you want to recruit " << endl;
 	do
 	{
@@ -142,11 +128,8 @@ void Team::addPerson() {
 		if (answer == "Yes" || answer == "yes" || answer == "YES" || answer == "Y" || answer == "y")
 		{
 			p = new Coach();
-			p->Input();
 			m_Coach = (Coach *)p;
 		}
-		else
-			return;
 	}
 	else
 	{
@@ -161,11 +144,12 @@ void Team::addPerson() {
 		for (int i = 0; i < num; i++)
 		{
 			p = new Player();
-			p->Input();
+
 			m_Player.push_back((Player *)p);
 			numPlayers++;
 		}
 	}
+	p->Input();
 
 }
 
@@ -205,21 +189,18 @@ double Team::getFinanceBudget()
 void Team::Input()
 {
 	cout << "Enter team's name: ";
-	cin.ignore();
 	getline(cin, m_Name);
 
 	cout << "Enter ID: ";
-	cin.ignore();
 	getline(cin, m_ID);
 
 
 	cout << "Enter date of establishment: ";
-	cin.ignore();
 	getline(cin, m_EstablishedDate);
 
 	cout << "Enter number of sponsors: ";
 	cin >> numSponsors;
-;
+	cin.ignore(1);
 	for (int i = 0; i < numSponsors; i++)
 	{
 		Person * p = new Person;
@@ -276,17 +257,39 @@ void Team::FireCoach()
 void Team::RecruitPlayer()
 {
 	int num = 0;
+
 	do {
 		cout << "Enter number of players you want to recruit:";
 		cin >> num;
+		cin.ignore();
 		if (num <= 0)
 			cout << "Number of players you want to recruit has to be an positive integer." << endl;
 	} while (num <= 0);
+
 	for (int i = 0; i < num; i++)
 	{
 		Player *p = new Player;
 		p->Input();
 		m_Player.push_back(p);
 	}
+}
+
+void Team::RecruitCoach()
+{
+	if (m_Coach->getName() != "Unknown")
+	{
+		string answer;
+		cout << "If you want to recruit new coach for your team... " << endl;
+		cout << "You have to fire your current coach!" << endl;
+		cout << "(Y/N)? ";
+		cin.ignore(1);
+		getline(cin, answer);
+		if (answer == "Y" || answer == "y")
+		{
+			FireCoach();
+		}
+	}
+	m_Coach->Input();
+
 }
 

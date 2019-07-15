@@ -61,7 +61,7 @@ public:
 	void printAchievements();
 	void printPlayersList();
 	void inputPlayersList();
-
+	void printCoachInfo();
 
 	void Dissolution();
 

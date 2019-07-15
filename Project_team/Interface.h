@@ -13,18 +13,16 @@ public:
 	void load();
 	void login();
 	void save();
-	void showMenu();
-	void showInfo();
-	void showPlayersList();
-	void showCoachInfo();
+	virtual void showMenu();
+	virtual void showInfo();
+	virtual void showPlayersList();
+	virtual void showCoachInfo();
 
 	void FinanceMenu();
 	void PlayerMenu();
 	void CoachMenu();
 	void TeamMenu();
 
-	void recruitPlayer();
-	void recruitCoach();
 	void firePlayer();
 	void fireCoach();
 

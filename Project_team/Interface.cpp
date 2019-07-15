@@ -54,11 +54,14 @@ void Main::showMenu()
 	cout << "3. Team Coach Menu" << endl;
 	cout << "4. Team Finance " << endl;
 	cout << "5. About your team " << endl;
+	cout << "6. Pay monthly salary to employees " << endl;
 	cin >> choice;
 	switch (choice)
 	{
 	case 1:
 		showInfo();
+		getchar();
+		showMenu();
 		break;
 	case 2:
 		PlayerMenu();
@@ -71,6 +74,9 @@ void Main::showMenu()
 		break;
 	case 5:
 		TeamMenu();
+		break;
+	case 6:
+		//m_Manager->paySalary(); 
 		break;
 	default:
 		showMenu();
@@ -91,12 +97,18 @@ void Main::PlayerMenu()
 	{
 	case 1:
 		m_Manager->printPlayersList();
+		getchar();
+		PlayerMenu();
 		break;
 	case 2:
-		m_Manager->Recruit();
+		m_Manager->recruit(1);
+		getchar();
+		PlayerMenu();
 		break;
 	case 3:
 		//m_Manager->Transfer();
+		getchar();
+		PlayerMenu();
 		break;
 	case 4:
 		showMenu();
@@ -109,6 +121,37 @@ void Main::PlayerMenu()
 void Main::CoachMenu()
 {
 	system("CLS");
+	int ch = 0;
+	cout << "1. Show coach' information" << endl;
+	cout << "2. Recruit new coach" << endl;
+	cout << "3. Fire current coach" << endl;
+	cout << "4. Back to menu..." << endl;
+	cin >> ch;
+	cin.ignore(1);
+	switch (ch)
+	{
+	case 1:
+		m_Manager->printCoachInfo();
+		getchar();
+		CoachMenu();
+		break;
+	case 2:
+		m_Manager->recruit(2);
+		getchar();
+		CoachMenu();
+		break;
+	case 3:
+		m_Manager->fire(2);
+		getchar();
+		CoachMenu();
+		break;
+	case 4:
+		showMenu();
+		break;
+	default:
+		CoachMenu();
+		break;
+	}
 }
 void Main::FinanceMenu()
 {
