@@ -108,29 +108,41 @@ void Main::PlayerMenu()
 	system("CLS");
 	int ch = 0;
 	cout << "1. Show all players' information" << endl;
-	cout << "2. Recruit players" << endl;
-	cout << "3. Transfer player" << endl;
-	cout << "4. Back to menu..." << endl;
+	cout << "2. Show detailed information of specific player" << endl;
+	cout << "3. Recruit players" << endl;
+	cout << "4. Transfer player" << endl;
+	cout << "5. Back to menu..." << endl;
+	cout << "<< ";
 	cin >> ch;
 	cin.ignore(1);
 	switch (ch)
 	{
 	case 1:
+		system("CLS");
 		m_Manager->printPlayersList();
-		getchar();
+		sleep();
 		PlayerMenu();
 		break;
 	case 2:
-		m_Manager->recruit(1);
-		getchar();
+		system("CLS");
+		m_Manager->printPlayersList();
+		m_Manager->printSpecificPlayer();
+		sleep();
 		PlayerMenu();
 		break;
 	case 3:
-		//m_Manager->Transfer();
-		getchar();
+		system("CLS");
+		m_Manager->recruit(1);
+		sleep();
 		PlayerMenu();
 		break;
 	case 4:
+		system("CLS");
+		//m_Manager->Transfer();
+		sleep();
+		PlayerMenu();
+		break;
+	case 5:
 		showMenu();
 		break;
 	default:
@@ -152,16 +164,19 @@ void Main::CoachMenu()
 	switch (ch)
 	{
 	case 1:
+		system("CLS");
 		m_Manager->printCoachInfo();
 		sleep();
 		CoachMenu();
 		break;
 	case 2:
+		system("CLS");
 		m_Manager->recruit(2);
 		sleep();
 		CoachMenu();
 		break;
 	case 3:
+		system("CLS");
 		m_Manager->fire(2);
 		sleep();
 		CoachMenu();
@@ -242,6 +257,7 @@ void Main::TeamMenu()
 		m_Manager->inputTeam();
 		sleep();
 		TeamMenu();
+		break;
 	case 3:
 		showMenu();
 		break;

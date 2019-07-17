@@ -1,8 +1,8 @@
 ﻿#include "Player.h"
 #include "Team.h"
-Player::Player() {
+Player::Player() 
+{
 	m_Position = "Unknown";
-	m_Coefficient = 0;
 	m_Value = 0;
 	m_Substitute = false;
 	m_Skill = "Unknown";
@@ -41,27 +41,18 @@ void Player::Input(){
 
 	cout<< "Substitute(y/n): ";
 	getline(cin, choice);
+
 	if (choice == "y" || choice == "Y")
 		m_Substitute = true;
 	else
 		m_Substitute = false;
 
-	cout << "Ban (y/n): ";
+	cout << "Banned? (y/n): ";
 	getline(cin, choice);
-
-	//Xet xem cau thu co bi ban khong
 	if (choice == "y" || choice == "Y")
-		m_Ban = true;
+		m_Substitute = true;
 	else
-		m_Ban = false;
-	do {
-		cout << "Substitute(y/n): ";
-		getline(cin, choice);
-		if (choice == "y" || choice == "Y")
-			m_Substitute = true;
-		else
-			m_Substitute = false;
-	} while (choice != "Y" && choice != "y" && choice != "N" && choice != "n");
+		m_Substitute = false;
 
 	cout<<"Skills: ";
 	getline(cin, m_Skill);
@@ -69,7 +60,6 @@ void Player::Input(){
 
 	cout<<"Years of experience: ";
 	cin>> m_Experience;
-	cin.ignore(1);
 
 	cout<<"Number of goals: ";
 	cin >> m_Goal;
@@ -80,27 +70,31 @@ void Player::Output() {
 	Person::Output();
 
 	cout << "Position: " << m_Position << endl;
-	cout << "Salary: " << m_Coefficient << endl;
+	cout << "Salary: " << Person::getSalary() << endl;
+
 	if (m_PenaltyCards.size() > 0)
 	{
 		cout << "Penalty cards: ";
 		for (int i = 0; i < m_PenaltyCards.size(); i++)
 			cout << m_PenaltyCards[i] << endl;
 	}
-	cout<<"Value: "<<m_Value<<endl;
+
+	cout<<"Transferable value : "<<m_Value<<endl;
+
 	cout<<"Substitute: ";
 	if (m_Substitute == true)
 		cout<<"Substitute player"<<endl;
 	else
 		cout<<"Offical player"<<endl; 
-	cout<<"Ban: ";
+
 	if (m_Ban == true)
-		cout<<"Banned player"<<endl;
+		cout<<"Banned player..."<<endl;
 	else
-		cout<<"Player is not banned."<<endl;
+		cout<<"Player has not been banned."<<endl;
+
 	cout<<"Skills: "<<m_Skill<< endl;
 	cout<<"Experience: "<<m_Experience<<endl;
-	cout<<"Goals: "<<m_Goal<<endl;
+	cout<<"Number of goals: "<<m_Goal<<endl;
 }
 void Player::setInfo(string l, string sk, double s, double v) {
 	m_Position = l;
@@ -110,14 +104,15 @@ void Player::setInfo(string l, string sk, double s, double v) {
 }
 double Player::getSalary()
 {
-	return Person::getSalary() * this->m_Coefficient;
+	return Person::getSalary();
 }
-
-double Player::getValue() {
+double Player::getValue() 
+{
 	return m_Value;
 }
 
-string Player::getPosition() {
+string Player::getPosition()
+{
 	return m_Position;
 }
 
@@ -143,7 +138,8 @@ void Player::changeSubstitute() {
 	else
 		m_Substitute = true;
 }
-void Player::addGoal(int goal) {
+void Player::addGoal(int goal)
+ {
 	m_Goal += goal;
 }
 int Player::getGoal() {

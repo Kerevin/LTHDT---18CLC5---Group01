@@ -39,13 +39,13 @@ void Team::Output()
 
 void Team::printPlayersList()
 {
-	cout <<"Number player: "<< numPlayers << endl;
+	cout <<"Number of players: "<< numPlayers << endl;
 	if (numPlayers > 0)
 	{
 		cout << "List of players in my teams: " << endl;
 		for (int i = 0; i < numPlayers; i++)
 		{
-			m_Player[i]->Output();
+			cout <<i+1<<"/ " << m_Player[i]->getName() <<" ("<<m_Player[i]->getPosition()<<")";
 			cout << endl;
 		}
 	}
@@ -66,7 +66,10 @@ void Team::printInfo() {
 	cout << "Established Date: " << m_EstablishedDate << endl;
 
 }
-
+void Team::printSpecificPlayer(int i)
+{
+	m_Player[i - 1]->Output();
+}
 void Team::printAchievements() {
 	if (numAchievement > 0)
 	{
@@ -256,6 +259,7 @@ void Team::RecruitPlayer()
 	for (int i = 0; i < num; i++)
 	{
 		Player *p = new Player;
+		numPlayers++;
 		p->Input();
 		m_Player.push_back(p);
 	}

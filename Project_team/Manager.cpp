@@ -80,6 +80,24 @@ void Manager::outputTeam()
 
 }
 
+void Manager::printSpecificPlayer()
+{
+	int ch;
+	if (m_Team->getNumPlayers() == 0)
+		return;
+	cout << "Which player do you want to see detail?" << endl;
+	do
+	{
+		cout << ">> ";
+		cin >> ch;
+		cin.ignore(1);
+		if (ch > m_Team->getNumPlayers())
+			cout << "We only have " << m_Team->getNumPlayers() << " players" << endl;
+	} while (ch > m_Team->getNumPlayers());
+	system("CLS");
+	m_Team->printSpecificPlayer(ch);
+	
+}
 void Manager::printPlayersList()
 {
 	m_Team->printPlayersList();
@@ -156,7 +174,7 @@ void Manager::recruit(int ch)
 	}
 	else
 	{
-			m_Team->RecruitCoach();
+		m_Team->RecruitCoach();
 	}
 }
 

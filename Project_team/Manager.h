@@ -28,6 +28,7 @@ public:
 	void outputTeam();
 	void inputTeam();
 
+	void printSpecificPlayer(); 
 
 	void printPlayersList();
 	void printCoachInfo();

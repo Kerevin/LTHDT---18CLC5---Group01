@@ -11,11 +11,14 @@ private:
 	string m_EstablishedDate;
 	Stadium * m_Stadium;
 
-	vector <Person *> m_Sponsors;	//Lam on k sa thai sponsors :))
+	vector <Person *> m_Sponsors;	
 	int numSponsors; 
+
 	vector <Player *> m_Player;
 	int numPlayers;
+
 	Coach * m_Coach;
+
 	vector<string> m_Achievements;
 	int numAchievement;
 public:
@@ -57,6 +60,7 @@ public:
 	void printPlayersList();
 	void inputPlayersList();
 	void printCoachInfo();
+	void printSpecificPlayer(int i);
 
 	void Dissolution();
 
