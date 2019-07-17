@@ -68,22 +68,15 @@ void Manager::Input()
 	cin >> m_Coefficient;
 	cin.ignore(1);
 
-	// ----------------------------------------
-	// Nếu không khởi tạo một Team trong hàm main thì sẽ khởi tạo ở đây
-	// Quản lý team sẽ thông qua Manager luôn 
-	// ----------------------------------------
-
-	/*if (m_Team == NULL)
-	{
-		m_Team = new Team();
-		m_Team->Input();
-	}*/
 }
-
+void Manager::inputTeam()
+{
+	m_Team->Input();
+}
 void Manager::outputTeam()
 {
 	cout << "*** My current team's information ***" << endl; 
-	m_Team->printInfo();
+	m_Team->Output();
 
 }
 
@@ -169,5 +162,22 @@ void Manager::recruit(int ch)
 
 void Manager::paySalary()
 {
-	m_Team->calcTotalSalary();
+	time_t now = time(0);
+	m_Finance->makeTransaction(ctime(&now), "paying salary.", m_Team->calcTotalSalary());
+}
+
+
+void  Manager::setFinanceBudget(double bud)
+{
+	m_Finance->addMoney(bud);
+}
+
+double Manager::getFinanceBudget()
+{
+	return m_Finance->getBudget();
+}
+
+void Manager::printFinaceInfo()
+{
+	m_Finance->Output();
 }

@@ -44,7 +44,7 @@ void Finance::makeTransaction(string date, string purpose, double money)
 	}
 	else
 	{
-		cout << "Failed to make transaction!" << endl;
+		cout << "Failed to make transaction due to not sufficient funds!" << endl;
 	}
 
 }

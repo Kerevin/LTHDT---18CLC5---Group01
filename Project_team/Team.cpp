@@ -1,16 +1,15 @@
 ﻿#include "Team.h"
 
-Team::Team () {
+Team::Team() {
 
-	 m_Name = "Unknown";
-	 m_ID = "Unknown";
-	 m_EstablishedDate = "Unknown";
-	 m_Stadium = new Stadium();
-	 this->numSponsors = 0;
-	 this->numPlayers = 0;
-	 m_Coach = new Coach();
+	m_Name = "Unknown";
+	m_ID = "Unknown";
+	m_EstablishedDate = "Unknown";
+	m_Stadium = new Stadium();
+	this->numSponsors = 0;
+	this->numPlayers = 0;
+	m_Coach = new Coach();
 }
-
 Team::Team(string n, string i,string b)
 {
 	m_Name = n;
@@ -20,6 +19,7 @@ Team::Team(string n, string i,string b)
 	numSponsors = 0;
 	numPlayers = 0;
 	m_Coach = new Coach();
+
 }
 
 Team::~Team() 
@@ -64,6 +64,7 @@ void Team::printInfo() {
 	cout << "Name of team: " << m_Name << endl;
 	cout << "ID: " << m_ID << endl;
 	cout << "Established Date: " << m_EstablishedDate << endl;
+
 }
 
 void Team::printAchievements() {
@@ -96,16 +97,11 @@ void Team::setStadium()
 
 }
 
-
 int Team::getNumPlayers()
 {
 	return this->numPlayers;
 }
 
-Finance& Team::getFinance()
-{
-	return *this->m_Finance;
-}
 
 void Team::addPerson() {
 	Person * p;
@@ -176,15 +172,6 @@ double Team::calcTotalSalary()
 	return total;
 }
 
-void Team::setFinanceBudget(double bud)
-{
-	this->m_Finance-> addMoney(bud);
-}
-
-double Team::getFinanceBudget()
-{
-	return this->m_Finance->getBudget();
-}
 
 void Team::Input()
 {

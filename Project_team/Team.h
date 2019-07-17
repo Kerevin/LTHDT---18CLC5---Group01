@@ -16,40 +16,35 @@ private:
 	vector <Player *> m_Player;
 	int numPlayers;
 	Coach * m_Coach;
-	Finance *m_Finance;
 	vector<string> m_Achievements;
 	int numAchievement;
 public:
 	Team();
 	Team(string n, string i, string b);
-	~Team();
+	virtual ~Team();
 
 
 	 // --------------------- //
-    //    About finance      //
+    //    About salary       //
    //   ------------------  //
-	double calcTotalSalary();
-	double getFinanceBudget();
-	void setFinanceBudget(double bud);
-	Finance& getFinance();
-
+	virtual double calcTotalSalary();
 
 	// --------------------- //
    //    About stadium      //
   //   ------------------  //
-	void setStadium(Stadium *);
-	void setStadium();
+	virtual void setStadium(Stadium *);
+	virtual void setStadium();
 
 
 	// --------------------- //
    //    About Employee     //
   //   ------------------  //
-	int getNumPlayers();
-	void FirePlayer(string id);
-	void FireCoach();	//Team only have 1 coach so we don't have to compare the id 
-	void RecruitPlayer();
-	void RecruitCoach();
-	void addPerson();
+	virtual int getNumPlayers();
+	virtual void FirePlayer(string id);
+	virtual void FireCoach();	//Team only have 1 coach so we don't have to compare the id 
+	virtual void RecruitPlayer();
+	virtual void RecruitCoach();
+	virtual void addPerson();
 
 
 	// --------------------- //

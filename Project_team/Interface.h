@@ -1,11 +1,12 @@
 #pragma once
 #include "Manager.h"
 #include <fstream>
+#include <windows.h>
 class Main
 {
 private:
 	int choice;
-	Manager * m_Manager;
+	Manager * m_Manager = new Manager();
 public:
 	Main();
 	~Main();
@@ -13,6 +14,8 @@ public:
 	void load();
 	void login();
 	void save();
+	void sleep();
+	
 	virtual void showMenu();
 	virtual void showInfo();
 	virtual void showPlayersList();
@@ -23,8 +26,7 @@ public:
 	void CoachMenu();
 	void TeamMenu();
 
-	void firePlayer();
-	void fireCoach();
+	void addBudget();
 
 	void run();
 };

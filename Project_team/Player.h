@@ -18,14 +18,14 @@ public:
 	~Player();
 	void Input();
 	void Output();
-	void setInfo(string, string, double, double);//Gán vị trí, đội tuyển, kỹ năng, mức lương, giá trị cầu thủ
+	void setInfo(string, string, double, double);
 	double getSalary();
-	double getValue();//Lấy giá trị cầu thủ
-	string getPosition();//Lấy vị trí cầu thủ
-	bool changeCoefficient(int, double);//Tăng giảm lương
-	void changeSubstitute();//Chuyển sang dự bị hoặc cho ra sân
-	void addGoal(int);//Thêm số bàn thắng
-	int getGoal();//Lấy số bàn thắng
-	void transfer(string ID);//Hàm chuyển nhượng(xoá cầu thủ)
+	double getValue();
+	string getPosition();
+
+	bool changeCoefficient(int, double);
+	void changeSubstitute();
+	void addGoal(int);
+	int getGoal();
 };
 
