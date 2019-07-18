@@ -93,7 +93,7 @@ void Manager::printSpecificPlayer()
 		cin.ignore(1);
 		if (ch > m_Team->getNumPlayers())
 			cout << "We only have " << m_Team->getNumPlayers() << " players" << endl;
-	} while (ch > m_Team->getNumPlayers());
+	} while (ch > m_Team->getNumPlayers() || ch <= 0);
 	system("CLS");
 	m_Team->printSpecificPlayer(ch);
 	
@@ -105,9 +105,11 @@ void Manager::printPlayersList()
 }
 void Manager::printInfo()
 {
+	cout << "------------------------------" << endl;
+	cout << "           About you          " << endl;
 	Person::Output();
 	cout << "Experience: " << m_Experience << endl;
-	cout << "Value: " << m_Coefficient << endl;
+	cout << "Coefficient: " << m_Coefficient << endl;
 }
 void Manager::printCoachInfo()
 {
@@ -181,7 +183,7 @@ void Manager::recruit(int ch)
 void Manager::paySalary()
 {
 	time_t now = time(0);
-	m_Finance->makeTransaction(ctime(&now), "paying salary.", m_Team->calcTotalSalary());
+	m_Finance->makeTransaction(ctime(&now), "paying salary.", -m_Team->calcTotalSalary());
 }
 
 
@@ -198,4 +200,23 @@ double Manager::getFinanceBudget()
 void Manager::printFinaceInfo()
 {
 	m_Finance->Output();
+}
+
+void Manager::transferPlayer()
+{
+
+	printPlayersList();
+	int ch;
+	cout << "Which player do you want to transfer?";
+	do {
+		cout << ">> ";
+		cin >> ch;
+		if (ch > m_Team->getNumPlayers())
+			cout << "We only have " << m_Team->getNumPlayers() << " players" << endl;
+	} while (ch > m_Team->getNumPlayers() || ch <= 0);
+	cin.ignore(1);
+	time_t now = time(0);
+	m_Finance->makeTransaction(ctime(&now), "transfering player.", m_Team->getSpecificPlayerValue(ch));
+	m_Team->transferPlayer(ch);
+	
 }

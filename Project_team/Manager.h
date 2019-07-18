@@ -29,14 +29,13 @@ public:
 	void inputTeam();
 
 	void printSpecificPlayer(); 
-
 	void printPlayersList();
 	void printCoachInfo();
 	void printInfo();
 	void printFinaceInfo();
 
 
-
+	void transferPlayer();
 	void recruit(int );
 	void fire(int);
 	void Fire();

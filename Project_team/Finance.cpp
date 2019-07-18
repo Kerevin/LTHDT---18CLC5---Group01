@@ -1,5 +1,5 @@
 #include"Finance.h"
-//Constructor:
+
 Finance::Finance()
 {
 	m_Budget= 0;
@@ -36,15 +36,16 @@ void Finance::Input()
 
 void Finance::makeTransaction(string date, string purpose, double money)
 {
-	if (m_Budget > money)
+	if (m_Budget + money > 0)
 	{
 		cout << "Succeed to make transaction!" << endl;
-		m_Budget -= money;
-		m_SpedingHistory.push_back("On " + date + " spending " + to_string(money) + " for " + purpose);
+		m_Budget += money;
+
+		m_SpedingHistory.push_back("On " + date + ": " + to_string(money) + " for " + purpose);
 	}
 	else
 	{
-		cout << "Failed to make transaction due to not sufficient funds!" << endl;
+		cout << "Failed to make transaction due to insufficient funds!" << endl;
 	}
 
 }
@@ -56,9 +57,11 @@ void Finance::showHistory()
 		cout << m_SpedingHistory[i] << endl;
 	}
 }
+
 void Finance::Output()
 {
 	cout << "Team's budget:"<< this->m_Budget << endl;
+	cout << fixed << setprecision(0) << endl;
 	cout << "Spending history: " << endl;
 	showHistory();
 	cout << endl;

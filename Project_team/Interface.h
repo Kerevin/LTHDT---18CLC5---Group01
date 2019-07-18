@@ -5,7 +5,7 @@
 class Main
 {
 private:
-	int choice;
+
 	Manager * m_Manager = new Manager();
 public:
 	Main();

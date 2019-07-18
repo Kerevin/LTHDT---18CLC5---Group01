@@ -2,7 +2,7 @@
 
 Main::Main()
 {
-	choice = 0;
+	
 }
 Main::~Main()
 {
@@ -44,7 +44,7 @@ void Main::save()
 }
 void Main::sleep()
 {
-	Sleep(2);
+	Sleep(20);
 	cout << "Press any key to coninue..." << endl;
 	getchar();
 }
@@ -66,7 +66,7 @@ void Main::showMenu()
 {
 	system("CLS");
 	cout << "*** Welcome to " << m_Manager->getName() << "'s  Team ***" << endl;
-	choice = 0;
+	int choice = 0;
 	cout << "1. Show your information" << endl;
 	cout << "2. Players Menu" << endl; 
 	cout << "3. Team Coach Menu" << endl;
@@ -97,6 +97,8 @@ void Main::showMenu()
 		break;
 	case 6:
 		m_Manager->paySalary(); 
+		sleep();
+		showMenu();
 		break;
 	default:
 		showMenu();
@@ -112,7 +114,7 @@ void Main::PlayerMenu()
 	cout << "3. Recruit players" << endl;
 	cout << "4. Transfer player" << endl;
 	cout << "5. Back to menu..." << endl;
-	cout << "<< ";
+	cout << ">> ";
 	cin >> ch;
 	cin.ignore(1);
 	switch (ch)
@@ -138,7 +140,7 @@ void Main::PlayerMenu()
 		break;
 	case 4:
 		system("CLS");
-		//m_Manager->Transfer();
+		m_Manager->transferPlayer();
 		sleep();
 		PlayerMenu();
 		break;

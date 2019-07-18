@@ -152,19 +152,6 @@ void Team::addPerson() {
 
 }
 
-void Team::Dissolution() {
-	// -------------------- //
-
-	// Hàm này đéo cứu được //
-
-	// -------------------- //
-	m_Name = "Unknown";
-	m_ID = "Unknown";
-	m_EstablishedDate = "Unknown";
-	m_Sponsors.clear();
-	m_Player.clear();
-	m_Achievements.clear();
-}	  
 
 double Team::calcTotalSalary()
 {
@@ -284,3 +271,21 @@ void Team::RecruitCoach()
 
 }
 
+void Team::transferPlayer(int i)
+{
+	if (numPlayers == 1)
+	{
+		m_Player.pop_back();
+		numPlayers = 0;
+	}
+	else
+	{
+		m_Player.erase(m_Player.begin() + i - 1);
+		numPlayers--;
+	}
+
+}
+double Team::getSpecificPlayerValue(int i)
+{
+	return m_Player[i - 1]->getValue();
+}

@@ -78,7 +78,7 @@ void Player::Output() {
 		for (int i = 0; i < m_PenaltyCards.size(); i++)
 			cout << m_PenaltyCards[i] << endl;
 	}
-
+	cout << fixed << setprecision(0) << endl;
 	cout<<"Transferable value : "<<m_Value<<endl;
 
 	cout<<"Substitute: ";

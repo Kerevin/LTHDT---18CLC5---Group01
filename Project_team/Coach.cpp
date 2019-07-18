@@ -99,8 +99,8 @@ void Coach::Input()
 void Coach::Output()
 {
 	cout << "------------------------------------------" << endl;
-	Person::Output();
 	cout << "			Information about Coach			" << endl;
+	Person::Output();
 	cout << "Coefficient: " << this->m_Coefficient << endl;
 	cout << "Experience: " << this->m_Experience << endl;
 	cout << "Info of teams that he/she has worked for : " << endl;

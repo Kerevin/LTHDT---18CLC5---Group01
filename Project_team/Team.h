@@ -3,6 +3,7 @@
 #include "Coach.h"
 #include "Player.h"
 #include "Stadium.h"
+
 class Team 
 {
 private:
@@ -43,12 +44,13 @@ public:
    //    About Employee     //
   //   ------------------  //
 	virtual int getNumPlayers();
+	virtual double getSpecificPlayerValue(int );
 	virtual void FirePlayer(string id);
-	virtual void FireCoach();	//Team only have 1 coach so we don't have to compare the id 
+	virtual void FireCoach();	
 	virtual void RecruitPlayer();
 	virtual void RecruitCoach();
 	virtual void addPerson();
-
+	virtual void transferPlayer(int i);
 
 	// --------------------- //
    //    About I-O          //
@@ -62,6 +64,6 @@ public:
 	void printCoachInfo();
 	void printSpecificPlayer(int i);
 
-	void Dissolution();
+
 
 };

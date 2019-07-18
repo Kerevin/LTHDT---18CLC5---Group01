@@ -77,6 +77,7 @@ void Person::Output()
 	cout << "Date of birth: " << m_DoB << endl;
 	cout << "ID number: " << m_ID << endl;
 	cout << "Nationality: " << m_Nationality << endl;
+	cout << fixed << setprecision(0) << endl;
 	cout << "Current salary: " << m_Salary << endl;
 }
 
