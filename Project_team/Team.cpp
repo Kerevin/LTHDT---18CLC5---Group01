@@ -10,11 +10,11 @@ Team::Team() {
 	this->numPlayers = 0;
 	m_Coach = new Coach();
 }
-Team::Team(string n, string i,string b)
+Team::Team(string n, string i,string e)
 {
 	m_Name = n;
 	m_ID = i;
-	m_EstablishedDate = b;
+	m_EstablishedDate = e;
 	m_Stadium = new Stadium();
 	numSponsors = 0;
 	numPlayers = 0;

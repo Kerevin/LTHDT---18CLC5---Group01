@@ -24,7 +24,7 @@ private:
 	int numAchievement;
 public:
 	Team();
-	Team(string n, string i, string b);
+	Team(string n, string i, string e);
 	virtual ~Team();
 
 

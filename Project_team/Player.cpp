@@ -14,10 +14,10 @@ Player::~Player()
 {
 
 }
-Player::Player(string hoten, string ngaysinh, string quoctich, double luong, string id,  string l, double s, vector<string> b, double v, bool su, string sk, int e, int g) 
+Player::Player(string hoten, string ngaysinh, string quoctich, double luong, string id,  string p, double s, vector<string> b, double v, bool su, string sk, int e, int g) 
 	: Person(hoten, ngaysinh, quoctich, id, luong)
 {
-	m_Position = l;
+	m_Position = p;
 	m_Coefficient = s;
 	m_PenaltyCards = b;
 	m_Value = v;

@@ -9,7 +9,7 @@ private:
 	double m_Value; //Giá trị cầu thủ
 	bool m_Substitute; //Dự bị hay không
 	string m_Skill; //Kỹ năng
-	int m_Experience;
+	int m_Experience;//Kinh nghiệm
 	int m_Goal; //Bàn thắng
 	bool m_Ban; //Cấm thi đấu hay không
 public:
