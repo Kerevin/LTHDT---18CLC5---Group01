@@ -14,18 +14,6 @@ Player::~Player()
 {
 
 }
-Player::Player(string hoten, string ngaysinh, string quoctich, double luong, string id,  string l, double s, vector<string> b, double v, bool su, string sk, int e, int g) 
-	: Person(hoten, ngaysinh, quoctich, id, luong)
-{
-	m_Position = l;
-	m_Coefficient = s;
-	m_PenaltyCards = b;
-	m_Value = v;
-	m_Substitute = su;
-	m_Skill = sk;
-	m_Experience = e;
-	m_Goal = g;
-}
 
 void Player::Input(){
 
@@ -131,17 +119,4 @@ bool Player::changeCoefficient(int x, double money) {
 	}
 
 	return true;
-}
-void Player::changeSubstitute() {
-	if (m_Substitute == true)
-		m_Substitute = false;
-	else
-		m_Substitute = true;
-}
-void Player::addGoal(int goal)
- {
-	m_Goal += goal;
-}
-int Player::getGoal() {
-	return m_Goal;
 }

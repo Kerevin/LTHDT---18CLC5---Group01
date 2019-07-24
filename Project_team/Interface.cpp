@@ -11,7 +11,7 @@ Main::~Main()
 
 void Main::load()
 {
-	// đại loại là chưa biết code gì //
+	
 }
 void Main::login()
 {
@@ -31,8 +31,6 @@ void Main::login()
 		Sleep(10);
 		system("CLS");
 		cout << "Please input your information! " << endl;
-		delete m_Manager;
-		m_Manager = new Manager();
 		m_Manager->Input();
 	}
 	
@@ -72,7 +70,9 @@ void Main::showMenu()
 	cout << "3. Team Coach Menu" << endl;
 	cout << "4. Team Finance " << endl;
 	cout << "5. About your team " << endl;
+	cout << "6. About team's training stadium" << endl;
 	cout << "6. Pay monthly salary to employees " << endl;
+	cout << "7. Edit your information" << endl;
 	cout << ">> ";
 	cin >> choice;
 	cin.ignore(1);
@@ -96,7 +96,17 @@ void Main::showMenu()
 		TeamMenu();
 		break;
 	case 6:
+		StadiumMenu();
+		break;
+	case 7:
 		m_Manager->paySalary(); 
+		sleep();
+		showMenu();
+		break;
+
+	case 8:
+		system("CLS");
+		m_Manager->Input();
 		sleep();
 		showMenu();
 		break;
@@ -191,7 +201,36 @@ void Main::CoachMenu()
 		break;
 	}
 }
-
+void Main::StadiumMenu()
+{
+	system("CLS");
+	int ch = 0;
+	cout << "1. Show stadium's information" << endl;
+	cout << "2. Edit stadium's information" << endl;
+	cout << "3. Back to menu..." << endl;
+	cout << ">> ";
+	cin >> ch;
+	cin.ignore(1);
+	switch (ch)
+	{
+	case 1:
+		m_Manager->printStadium();
+		sleep();
+		StadiumMenu();
+		break;
+	case 2:
+		m_Manager->inputStadium();
+		sleep();
+		StadiumMenu();
+		break;
+	case 3:
+		showMenu();
+		break;
+	default:
+		StadiumMenu();
+		break;
+	}
+}
 void Main::addBudget()
 {
 	double bud;

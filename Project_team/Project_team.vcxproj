@@ -66,6 +66,7 @@
     <ClInclude Include="Coach.h" />
     <ClInclude Include="Finance.h" />
     <ClInclude Include="Interface.h" />
+    <ClInclude Include="Login.h" />
     <ClInclude Include="Manager.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="Player.h" />
@@ -82,6 +83,9 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Stadium.cpp" />
     <ClCompile Include="Team.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

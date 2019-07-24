@@ -5,22 +5,11 @@ Team::Team() {
 	m_Name = "Unknown";
 	m_ID = "Unknown";
 	m_EstablishedDate = "Unknown";
-	m_Stadium = new Stadium();
 	this->numSponsors = 0;
 	this->numPlayers = 0;
 	m_Coach = new Coach();
 }
-Team::Team(string n, string i,string b)
-{
-	m_Name = n;
-	m_ID = i;
-	m_EstablishedDate = b;
-	m_Stadium = new Stadium();
-	numSponsors = 0;
-	numPlayers = 0;
-	m_Coach = new Coach();
 
-}
 
 Team::~Team() 
 {
@@ -79,26 +68,7 @@ void Team::printAchievements() {
 	}
 }
 
-void Team::setStadium(Stadium * s)
-{
-	if (m_Stadium != NULL)
-	{
-		delete m_Stadium;
-	}
-	m_Stadium = s;
-	
-}
 
-void Team::setStadium()
-{
-	if (m_Stadium != NULL)
-	{
-		delete m_Stadium;
-	}
-	m_Stadium = new Stadium;
-	m_Stadium->Input();
-
-}
 
 int Team::getNumPlayers()
 {
@@ -236,7 +206,7 @@ void Team::RecruitPlayer()
 	int num = 0;
 
 	do {
-		cout << "Enter number of players you want to recruit:";
+		cout << "Enter number of players you want to recruit: ";
 		cin >> num;
 		cin.ignore();
 		if (num <= 0)

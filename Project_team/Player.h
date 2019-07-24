@@ -14,18 +14,17 @@ private:
 	bool m_Ban; //Cấm thi đấu hay không
 public:
 	Player();
-	Player(string, string, string, double, string, string, double , vector<string>, double, bool, string, int, int);
+	
 	~Player();
 	void Input();
 	void Output();
 	void setInfo(string, string, double, double);
+
 	double getSalary();
 	double getValue();
 	string getPosition();
 
 	bool changeCoefficient(int, double);
-	void changeSubstitute();
-	void addGoal(int);
-	int getGoal();
+
 };
 

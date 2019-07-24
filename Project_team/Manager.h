@@ -9,36 +9,31 @@ private:
 	string m_Skills;	
 	Team * m_Team = new Team();
 	Finance * m_Finance = new Finance();
+	Stadium *m_Stadium = new Stadium();
 
 public:
 	Manager();
-	Manager(string name,string dob,string nationality,string id,double salary,int experience,double coefficient,string skills);
 	~Manager();
 
-	void setExperience(int ex);
-	void setCoefficient(double s);
-	void setSkills(string sk);
 	void setTeam(Team *t);
 
-	int getExperience();
-	double getCoefficient();
-	string getSkills();
+
 	
 	void Input();
 	void outputTeam();
 	void inputTeam();
+	void inputStadium();
 
 	void printSpecificPlayer(); 
 	void printPlayersList();
 	void printCoachInfo();
 	void printInfo();
 	void printFinaceInfo();
-
+	void printStadium();
 
 	void transferPlayer();
 	void recruit(int );
 	void fire(int);
-	void Fire();
 
 
 	virtual void paySalary();

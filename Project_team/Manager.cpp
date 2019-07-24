@@ -7,49 +7,12 @@ Manager::Manager(void)
 	this->m_Skills="";
 }
 
-Manager::Manager(string name, string dob, string nationality, string id, 
-	             double salary, int experience,double coefficient,string skills)
-	: Person(name, dob, nationality, id, salary)
-{
-	this->m_Experience=experience;
-	this->m_Coefficient=coefficient;
-	this->m_Skills=skills;
-}
 
 Manager::~Manager()
 {
 
 }
 
-void Manager::setExperience(int ex)
-{
-	this->m_Experience=ex;
-}
-
-void Manager::setCoefficient(double coeff)
-{
-	this->m_Coefficient=coeff;
-}
-
-void Manager::setSkills(string sk)
-{
-	this->m_Skills=sk;
-}
-
-int Manager::getExperience()
-{
-	return this->m_Experience;
-}
-
-double Manager::getCoefficient()
-{
-	return this->m_Coefficient;
-}
-
-string Manager::getSkills()
-{
-	return this->m_Skills;
-}
 
 void Manager::setTeam(Team *t)
 {
@@ -58,7 +21,7 @@ void Manager::setTeam(Team *t)
 
 void Manager::Input()
 {
-	cout << "*** Manger's information *** " << endl;
+	cout << "*** Manager's information *** " << endl;
 	Person::Input();
 
 	cout << "Enter Experience: ";
@@ -116,45 +79,6 @@ void Manager::printCoachInfo()
 	m_Team->printCoachInfo();
 }
 
-void Manager::Fire()
-{
-	cout << "Enter role you want to fire" <<endl;
-	int role=0;
-	do {
-		cout << "(1 : Coach ; 2 : Player) : ";
-		cin >> role;
-	} while (role != 1 && role != 2);
-		if (role ==2)
-	{
-		if (this->m_Team != NULL)
-		{
-			if (this->m_Team->getNumPlayers() == 0)
-			{
-				cout << "There is no player in your team to fire!" << endl;
-			}
-			else
-			{
-				int num = 0;
-				do {
-					cout << "Enter number of player you want to fire: ";
-					cin >> num;
-					if (num <= 0)
-						cout << "Number of players you want to fire has to be an positive integer." << endl;
-				} while (num <= 0);
-				for (int i = 0; i < num; i++)
-				{
-					string id;
-					cin.ignore();
-					cout << "Enter player's id you want to fire:";
-					getline(cin, id);
-					this->m_Team->FirePlayer(id);
-				}
-			}
-		}
-	}
-	else
-		this->m_Team->FireCoach();
-}
 
 void Manager::fire(int ch)
 {
@@ -206,6 +130,11 @@ void Manager::transferPlayer()
 {
 
 	printPlayersList();
+	if (m_Team->getNumPlayers() == 0)
+	{
+		cout << "There is no player in your team." << endl;
+		return;
+	}
 	int ch;
 	cout << "Which player do you want to transfer?";
 	do {
@@ -219,4 +148,16 @@ void Manager::transferPlayer()
 	m_Finance->makeTransaction(ctime(&now), "transfering player.", m_Team->getSpecificPlayerValue(ch));
 	m_Team->transferPlayer(ch);
 	
+}
+
+void Manager::inputStadium()
+{
+	cout << "*** Training Stadium ***" << endl;
+	m_Stadium->Input();
+}
+
+void Manager::printStadium()
+{
+	cout << "*** Training Stadium Information ***" << endl;
+	m_Stadium->Output();
 }

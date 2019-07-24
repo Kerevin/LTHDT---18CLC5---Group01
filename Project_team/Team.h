@@ -10,7 +10,6 @@ private:
 	string m_Name;
 	string m_ID;
 	string m_EstablishedDate;
-	Stadium * m_Stadium;
 
 	vector <Person *> m_Sponsors;	
 	int numSponsors; 
@@ -24,7 +23,6 @@ private:
 	int numAchievement;
 public:
 	Team();
-	Team(string n, string i, string b);
 	virtual ~Team();
 
 
@@ -32,12 +30,6 @@ public:
     //    About salary       //
    //   ------------------  //
 	virtual double calcTotalSalary();
-
-	// --------------------- //
-   //    About stadium      //
-  //   ------------------  //
-	virtual void setStadium(Stadium *);
-	virtual void setStadium();
 
 
 	// --------------------- //

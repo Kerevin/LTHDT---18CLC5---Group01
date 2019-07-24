@@ -1,7 +1,7 @@
 #pragma once
 #include "Manager.h"
-#include <fstream>
 #include <windows.h>
+#include "Login.h"
 class Main
 {
 private:
@@ -21,6 +21,7 @@ public:
 	virtual void showPlayersList();
 	virtual void showCoachInfo();
 
+	void StadiumMenu();
 	void FinanceMenu();
 	void PlayerMenu();
 	void CoachMenu();
