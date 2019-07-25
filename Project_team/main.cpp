@@ -6,14 +6,11 @@
 void main()
 {
 	
-	//Main * mainProgram = new Main();
-	//mainProgram->run();
-
-	//login->signUp();
+	Main * mainProgram = new Main();
+	mainProgram->run();
 	// Khoa code đỉnh Vô Cùng Luôn //
 	cout << endl;
-	delete login;
-	//delete mainProgram;
+	delete mainProgram;
 	system("pause");
 
 }
