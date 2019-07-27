@@ -18,16 +18,17 @@ public:
 	
 	virtual void showMenu();
 	virtual void showInfo();
-	virtual void showPlayersList();
-	virtual void showCoachInfo();
 
-	void StadiumMenu();
-	void FinanceMenu();
-	void PlayerMenu();
-	void CoachMenu();
-	void TeamMenu();
+	
+	virtual void changePlayerSalary();
+	virtual void changeCoachSalary();
+	virtual void StadiumMenu();
+	virtual void FinanceMenu();
+	virtual void PlayerMenu();
+	virtual void CoachMenu();
+	virtual void TeamMenu();
 
-	void addBudget();
+	virtual void addBudget();
 
-	void run();
+	virtual void run();
 };

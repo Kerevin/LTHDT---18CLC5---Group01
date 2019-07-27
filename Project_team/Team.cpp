@@ -68,7 +68,10 @@ void Team::printAchievements() {
 	}
 }
 
-
+void Team::changeCoachSalary(double s)
+{
+	m_Coach->setSalary(s);
+}
 
 int Team::getNumPlayers()
 {

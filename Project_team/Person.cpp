@@ -22,6 +22,11 @@ Person::~Person()
 
 }
 
+void Person::setSalary(double salaray)
+{
+	m_Salary = salaray;
+}
+
 void Person::Input()
 {
 	cout << "Enter name: ";

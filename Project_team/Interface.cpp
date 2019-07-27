@@ -51,15 +51,7 @@ void Main::showInfo()
 	system("CLS");
 	m_Manager->printInfo();
 }
-void  Main::showPlayersList()
-{
-	m_Manager->printPlayersList();
-}
-void Main::showCoachInfo()
-{
-	system("CLS");
-	m_Manager->printCoachInfo();
-}
+
 void Main::showMenu()
 {
 	system("CLS");
@@ -123,6 +115,7 @@ void Main::PlayerMenu()
 	cout << "2. Show detailed information of specific player" << endl;
 	cout << "3. Recruit players" << endl;
 	cout << "4. Transfer player" << endl;
+	cout << "5. Modify salary of specific player" << endl;
 	cout << "5. Back to menu..." << endl;
 	cout << ">> ";
 	cin >> ch;
@@ -169,7 +162,8 @@ void Main::CoachMenu()
 	cout << "1. Show coach' information" << endl;
 	cout << "2. Recruit new coach" << endl;
 	cout << "3. Fire current coach" << endl;
-	cout << "4. Back to menu..." << endl;
+	cout << "4. Modify coach's salary " << endl;
+	cout << "5. Back to menu..." << endl;
 	cout << ">> ";
 	cin >> ch;
 	cin.ignore(1);
@@ -189,11 +183,17 @@ void Main::CoachMenu()
 		break;
 	case 3:
 		system("CLS");
-		m_Manager->fire(2);
+		m_Manager->fireCoach();
 		sleep();
 		CoachMenu();
 		break;
 	case 4:
+		system("CLS");
+		changeCoachSalary();
+		sleep();
+		CoachMenu();
+		break;
+	case 5:
 		showMenu();
 		break;
 	default:
@@ -308,8 +308,26 @@ void Main::TeamMenu()
 	}
 }
 
+void Main::changePlayerSalary()
+{
+	m_Manager->printPlayersList();
+}
+
+void Main::changeCoachSalary()
+{
+	double n_S;
+	cout << "Input the amount of new salary for coach: " << endl;
+	do
+	{
+		cout << ">> ";
+		cin >> n_S;
+	} while (n_S < 0);
+	m_Manager->changeCoachSalary(n_S);
+}
+
 void Main::run()
 {
 	login();
 	showMenu();
 }
+

@@ -30,7 +30,7 @@ public:
     //    About salary       //
    //   ------------------  //
 	virtual double calcTotalSalary();
-
+	virtual void  changeCoachSalary(double );
 
 	// --------------------- //
    //    About Employee     //

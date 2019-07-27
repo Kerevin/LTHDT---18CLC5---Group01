@@ -20,6 +20,7 @@ public:
 
 	virtual ~Person();
 
+	virtual void setSalary(double );
 	virtual void Input();
 	virtual void Output();
 

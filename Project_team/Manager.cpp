@@ -80,16 +80,9 @@ void Manager::printCoachInfo()
 }
 
 
-void Manager::fire(int ch)
+void Manager::fireCoach()
 {
-	if (ch == 1)
-	{
-		m_Team->FirePlayer("");
-	}
-	else
-	{
-		m_Team->FireCoach();
-	}
+	m_Team->FireCoach();
 }
 
 void Manager::recruit(int ch)
@@ -103,7 +96,10 @@ void Manager::recruit(int ch)
 		m_Team->RecruitCoach();
 	}
 }
-
+void Manager::changeCoachSalary(double s)
+{
+	m_Team->changeCoachSalary(s);
+}
 void Manager::paySalary()
 {
 	time_t now = time(0);

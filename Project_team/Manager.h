@@ -33,9 +33,9 @@ public:
 
 	void transferPlayer();
 	void recruit(int );
-	void fire(int);
+	void fireCoach();
 
-
+	virtual void changeCoachSalary(double );
 	virtual void paySalary();
 	virtual double getFinanceBudget();
 	virtual void setFinanceBudget(double bud);
