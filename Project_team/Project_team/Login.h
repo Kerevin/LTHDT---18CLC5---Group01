@@ -1,34 +1,33 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include <cstring>
 #include <conio.h>
 #include <fstream>
 using namespace std;
 class Login
 {
 private:
-	string Username, Password;
+	string m_Password, m_Account;
 	fstream m_FileData;
 public:
 	Login()
 	{
-		
+		m_Password = "";
+		m_Account = "";
 	}
 	~Login()
 	{
 	}
 
-	virtual	void signIn()
+	void signIn()
 	{
 		cout << "Account: ";
-		getline(cin, Username);
+		getline(cin, m_Account);
 		cout << "Password: ";
-		Password = enterPassword();
-		system("cls");
+		m_Password = enterPassword();
 	}
 
-	virtual void signUp()
+	void signUp()
 	{
 		signIn();
 		save();
@@ -54,48 +53,34 @@ public:
 			}
 			p = _getch();
 			system("cls");
-			cout << "Account: " << Username << endl;
+			cout << "Account: " << m_Account << endl;
 			cout << "Password: ";
 		
 		} while (p != 13); // Enter is pressed
 		cout << P << endl;
-		return (password);
+		return password;
 	}
 
-	virtual void save()
+	void save()
 	{
 		m_FileData.open("data", ios::app);
-		m_FileData << Username << endl;
-		m_FileData << Password << endl;
+		m_FileData << m_Account << endl;
+		m_FileData << m_Password << endl;
 		m_FileData.close();
 	}
 
 	void load()
 	{
 		m_FileData.open("data",ios::in);
-		signIn();
-		string name, pw;
-		bool check = false;
-		while (m_FileData)
-		{ 
-			getline(m_FileData, name);
-			getline(m_FileData, pw);
-				if (Username == name && Password == pw)
-				{
-					check = true;
-					break;
-				}
-		}
-		if (check == false)
-		{
-			cout << "Incorrect username or password!" << endl;
-			getchar();
-			system("cls");
-			m_FileData.close();
-			load();
-		}
-		else
-			cout << "Login sucessfully" << endl;
+
+		getline(m_FileData, m_Account);
+		getline(m_FileData, m_Password);
+
 		m_FileData.close();
+	}
+
+	bool check()
+	{
+
 	}
 };
