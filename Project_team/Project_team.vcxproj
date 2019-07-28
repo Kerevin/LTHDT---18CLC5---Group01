@@ -1,9 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-=======
-<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
->>>>>>> ecd0fd316b0ef9e8955976e47bc6a0999a5b3b2e
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -15,34 +11,23 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{A1D08418-6732-4ACD-88A4-A576DB130C32}</ProjectGuid>
-    <RootNamespace>Project</RootNamespace>
-<<<<<<< HEAD
+    <ProjectGuid>{76D8E0F7-4DDF-4FA2-8CDD-0D8546E32D28}</ProjectGuid>
+    <RootNamespace>Project_team</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
-=======
->>>>>>> ecd0fd316b0ef9e8955976e47bc6a0999a5b3b2e
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-<<<<<<< HEAD
-    <PlatformToolset>v141</PlatformToolset>
-=======
-    <PlatformToolset>v120</PlatformToolset>
->>>>>>> ecd0fd316b0ef9e8955976e47bc6a0999a5b3b2e
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-<<<<<<< HEAD
-    <PlatformToolset>v141</PlatformToolset>
-=======
-    <PlatformToolset>v120</PlatformToolset>
->>>>>>> ecd0fd316b0ef9e8955976e47bc6a0999a5b3b2e
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -59,7 +44,6 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -71,7 +55,6 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <SDLCheck>true</SDLCheck>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -80,18 +63,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-<<<<<<< HEAD
+    <ClInclude Include="Coach.h" />
+    <ClInclude Include="Finance.h" />
+    <ClInclude Include="Interface.h" />
+    <ClInclude Include="Login.h" />
+    <ClInclude Include="Manager.h" />
     <ClInclude Include="Person.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Stadium.h" />
+    <ClInclude Include="Team.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Coach.cpp" />
+    <ClCompile Include="Finance.cpp" />
+    <ClCompile Include="Interface.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Manager.cpp" />
     <ClCompile Include="Person.cpp" />
-=======
-    <ClInclude Include="Stadium.h" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Stadium.cpp" />
+    <ClCompile Include="Team.cpp" />
   </ItemGroup>
   <ItemGroup>
->>>>>>> ecd0fd316b0ef9e8955976e47bc6a0999a5b3b2e
-    <ClCompile Include="Stadium.cpp" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
