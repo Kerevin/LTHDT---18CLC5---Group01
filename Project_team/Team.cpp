@@ -262,3 +262,8 @@ double Team::getSpecificPlayerValue(int i)
 {
 	return m_Player[i - 1]->getValue();
 }
+
+void Team::setPlayerSalary(int ch, double s)
+{
+	m_Player[ch - 1]->setSalary(s);
+}

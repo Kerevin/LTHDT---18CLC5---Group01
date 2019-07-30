@@ -36,6 +36,7 @@ public:
    //    About Employee     //
   //   ------------------  //
 	virtual int getNumPlayers();
+	virtual void setPlayerSalary(int, double);
 	virtual double getSpecificPlayerValue(int );
 	virtual void FirePlayer(string id);
 	virtual void FireCoach();	

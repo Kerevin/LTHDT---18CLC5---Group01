@@ -1,36 +1,57 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <cstring>
 #include <conio.h>
 #include <fstream>
 using namespace std;
 class Login
 {
 private:
-	string m_Password, m_Account;
+	string Username, Password;
 	fstream m_FileData;
 public:
 	Login()
 	{
-		m_Password = "";
-		m_Account = "";
+
 	}
 	~Login()
 	{
+		if (m_FileData)
+			m_FileData.close();
 	}
 
-	void signIn()
+	virtual	void login()
 	{
 		cout << "Account: ";
-		getline(cin, m_Account);
+		getline(cin, Username);
 		cout << "Password: ";
-		m_Password = enterPassword();
+		Password = enterPassword();
+		system("cls");
 	}
-
-	void signUp()
+	virtual void signUp()
 	{
-		signIn();
-		save();
+		login();
+		saveAccount();
+	}
+	virtual bool signIn()
+	{
+		m_FileData.open("data", ios::in);
+		login();
+		string name, pw;
+		bool check = false;
+		while (m_FileData)
+		{
+			getline(m_FileData, name);
+			getline(m_FileData, pw);
+			if (Username == name && Password == pw)
+			{
+				check = true;
+				break;
+			}
+		}
+		m_FileData.close();
+		return (check);
 	}
 
 	string enterPassword()
@@ -53,34 +74,20 @@ public:
 			}
 			p = _getch();
 			system("cls");
-			cout << "Account: " << m_Account << endl;
+			cout << "Account: " << Username << endl;
 			cout << "Password: ";
-		
+
 		} while (p != 13); // Enter is pressed
 		cout << P << endl;
-		return password;
+		return (password);
 	}
 
-	void save()
+	virtual void saveAccount()
 	{
 		m_FileData.open("data", ios::app);
-		m_FileData << m_Account << endl;
-		m_FileData << m_Password << endl;
+		m_FileData << Username << endl;
+		m_FileData << Password << endl;
 		m_FileData.close();
 	}
 
-	void load()
-	{
-		m_FileData.open("data",ios::in);
-
-		getline(m_FileData, m_Account);
-		getline(m_FileData, m_Password);
-
-		m_FileData.close();
-	}
-
-	bool check()
-	{
-
-	}
 };

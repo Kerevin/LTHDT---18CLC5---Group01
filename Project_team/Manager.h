@@ -17,8 +17,6 @@ public:
 
 	void setTeam(Team *t);
 
-
-	
 	void Input();
 	void outputTeam();
 	void inputTeam();
@@ -35,7 +33,8 @@ public:
 	void recruit(int );
 	void fireCoach();
 
-	virtual void changeCoachSalary(double );
+	virtual void changePlayerSalary();
+	virtual void changeCoachSalary();
 	virtual void paySalary();
 	virtual double getFinanceBudget();
 	virtual void setFinanceBudget(double bud);

@@ -61,6 +61,26 @@ void Manager::printSpecificPlayer()
 	m_Team->printSpecificPlayer(ch);
 	
 }
+
+void Manager::changePlayerSalary()
+{
+	int ch;
+	double salary;
+	cout << "Which player do you want to modify his salary?" << endl;
+	do
+	{
+		cout << ">> ";
+		cin >> ch;
+		cin.ignore(1);
+		if (ch > m_Team->getNumPlayers())
+			cout << "Error syxtax! Please try again..." << endl;
+	} while (ch > m_Team->getNumPlayers() || ch <= 0);
+	cout << "Input new salary: "; 
+	cin >> salary;
+	cin.ignore(1);
+	m_Team->setPlayerSalary(ch, salary);
+}
+
 void Manager::printPlayersList()
 {
 	m_Team->printPlayersList();
@@ -74,11 +94,11 @@ void Manager::printInfo()
 	cout << "Experience: " << m_Experience << endl;
 	cout << "Coefficient: " << m_Coefficient << endl;
 }
+
 void Manager::printCoachInfo()
 {
 	m_Team->printCoachInfo();
 }
-
 
 void Manager::fireCoach()
 {
@@ -96,10 +116,18 @@ void Manager::recruit(int ch)
 		m_Team->RecruitCoach();
 	}
 }
-void Manager::changeCoachSalary(double s)
+void Manager::changeCoachSalary()
 {
-	m_Team->changeCoachSalary(s);
+	double n_S;
+	cout << "Input the amount of new salary for coach: " << endl;
+	do
+	{
+		cout << ">> ";
+		cin >> n_S;
+	} while (n_S < 0);
+	m_Team->changeCoachSalary(n_S);
 }
+
 void Manager::paySalary()
 {
 	time_t now = time(0);

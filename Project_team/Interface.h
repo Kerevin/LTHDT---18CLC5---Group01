@@ -7,21 +7,19 @@ class Main
 private:
 
 	Manager * m_Manager = new Manager();
+	Login *account = new Login;
 public:
 	Main();
 	~Main();
-
-	void load();
+	
 	void login();
-	void save();
 	void sleep();
-	
-	virtual void showMenu();
-	virtual void showInfo();
+	void signIn();
+	void signUp();
 
+
+	virtual void showMenu();
 	
-	virtual void changePlayerSalary();
-	virtual void changeCoachSalary();
 	virtual void StadiumMenu();
 	virtual void FinanceMenu();
 	virtual void PlayerMenu();
