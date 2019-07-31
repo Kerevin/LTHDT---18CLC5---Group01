@@ -38,36 +38,71 @@ CHOICE:
 
 void Main::signUp()
 {
-	cout << "Creating new account...";
-	Sleep(10);
+	cout << "Creating new account..." << endl;
 	system("CLS");
 	account->signUp();
+	cout << "Signed up sucessfully" << endl;
 	cout << "Please input your information! " << endl;
 	m_Manager->Input();
 }
 
 void Main::login()
 {
+	system("CLS");
 	int ch = 0;
 	cout << "---------------------------------------" << endl;
 	cout << "*** Welcome to Football Team Manger ***" << endl;
 	cout << "---------------------------------------" << endl;
 	cout << endl;
 	cout << "Now you are a manager of your own team" << endl;
-	cout << "1: sign in      2: create new account " << endl;
+	cout << "1: Sign in      2: Create new account " << endl;
 	cout << ">> ";
 	cin >> ch;
 	cin.ignore(1);
 	if (ch == 1)
 	{
 		signIn();
+		load();
 	}
-	if (ch == 2)
+	else if (ch == 2)
 	{
-	
+		signUp();
+		save();
 	}
-	
+	else
+	{
+		login();
+	}
 
+}
+
+void Main::save()
+{
+	cout << fixed << setprecision(0) << endl;
+	(*account) << account->getUserName();
+	(*account) << m_Manager->getName();
+	(*account) << m_Manager->getID();
+	(*account) << m_Manager->getDOB();
+	(*account) << m_Manager->getNationality();
+	(*account) << m_Manager->getSalary();
+	(*account) << m_Manager->getExperience();
+	(*account) << m_Manager->getCoefficient();
+}
+
+void Main::load()
+{
+	// Manual work //
+	// Need some exceptional methods to handle this //
+
+	string * list = account->loadData();
+	m_Manager->setName(list[0]);
+	m_Manager->setID(list[1]);
+	m_Manager->setDOB(list[2]);
+	m_Manager->setNationality(list[3]);
+	m_Manager->setSalary(stod(list[4]));
+	m_Manager->setExperience(stoi(list[5]));
+	m_Manager->setCoefficient(stod(list[6]));
+	delete[] list;
 }
 
 void Main::sleep()
@@ -76,7 +111,6 @@ void Main::sleep()
 	cout << "Press any key to coninue..." << endl;
 	getchar();
 }
-
 
 void Main::showMenu()
 {
@@ -91,6 +125,7 @@ void Main::showMenu()
 	cout << "6. About team's training stadium" << endl;
 	cout << "7. Pay monthly salary to employees " << endl;
 	cout << "8. Edit your information" << endl;
+	cout << "9. Back to login console" << endl;
 	cout << ">> ";
 	cin >> choice;
 	cin.ignore(1);
@@ -122,13 +157,14 @@ void Main::showMenu()
 		sleep();
 		showMenu();
 		break;
-
 	case 8:
 		system("CLS");
 		m_Manager->Input();
 		sleep();
 		showMenu();
 		break;
+	case 9:
+		login();
 	default:
 		showMenu();
 		break;

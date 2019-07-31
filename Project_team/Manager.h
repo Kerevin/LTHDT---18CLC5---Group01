@@ -6,7 +6,6 @@ class Manager: virtual public Person
 private:
 	int m_Experience;
 	double m_Coefficient;
-	string m_Skills;	
 	Team * m_Team = new Team();
 	Finance * m_Finance = new Finance();
 	Stadium *m_Stadium = new Stadium();
@@ -17,6 +16,13 @@ public:
 
 	void setTeam(Team *t);
 
+	void setExperience(int);
+	void setCoefficient(double);
+
+	int getExperience();
+	double getCoefficient();
+
+	
 	void Input();
 	void outputTeam();
 	void inputTeam();

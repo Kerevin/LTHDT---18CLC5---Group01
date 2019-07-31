@@ -4,7 +4,6 @@ Manager::Manager(void)
 {
 	this->m_Experience=0;
 	this->m_Coefficient=0;
-	this->m_Skills="";
 }
 
 
@@ -18,6 +17,25 @@ void Manager::setTeam(Team *t)
 {
 	m_Team = t;
 }
+void Manager::setExperience(int e)
+{
+	m_Experience = e;
+}
+void Manager::setCoefficient(double c)
+{
+	m_Coefficient = c;
+}
+
+
+double Manager::getCoefficient()
+{
+	return m_Coefficient;
+}
+int Manager::getExperience()
+{
+	return m_Experience;
+}
+
 
 void Manager::Input()
 {
@@ -73,7 +91,7 @@ void Manager::changePlayerSalary()
 		cin >> ch;
 		cin.ignore(1);
 		if (ch > m_Team->getNumPlayers())
-			cout << "Error syxtax! Please try again..." << endl;
+			cout << "Error syntax! Please try again..." << endl;
 	} while (ch > m_Team->getNumPlayers() || ch <= 0);
 	cout << "Input new salary: "; 
 	cin >> salary;
@@ -93,6 +111,7 @@ void Manager::printInfo()
 	Person::Output();
 	cout << "Experience: " << m_Experience << endl;
 	cout << "Coefficient: " << m_Coefficient << endl;
+	cout << "Current salary: " << getSalary() * (1 + m_Coefficient);
 }
 
 void Manager::printCoachInfo()
@@ -133,7 +152,6 @@ void Manager::paySalary()
 	time_t now = time(0);
 	m_Finance->makeTransaction(ctime(&now), "paying salary.", -m_Team->calcTotalSalary());
 }
-
 
 void  Manager::setFinanceBudget(double bud)
 {

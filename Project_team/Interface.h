@@ -16,7 +16,8 @@ public:
 	void sleep();
 	void signIn();
 	void signUp();
-
+	void save();
+	void load();
 
 	virtual void showMenu();
 	

@@ -3,7 +3,7 @@
 
 Coach::Coach() : Person()
 {
-	this->m_Coefficient=0;
+	this->m_Coefficient=1;
 	this->m_Experience=0;
 	this->m_numTeam=0;
 	this->m_numAchieve=0;
@@ -18,7 +18,7 @@ Coach::~Coach()
 
 double Coach::getSalary()
 {
-	return Person::getSalary() * this->m_Coefficient;
+	return Person::getSalary()*(1 + this->m_Coefficient);
 }
 
 

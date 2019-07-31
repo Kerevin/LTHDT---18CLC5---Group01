@@ -26,15 +26,10 @@ public:
 	virtual ~Team();
 
 
-	 // --------------------- //
-    //    About salary       //
-   //   ------------------  //
 	virtual double calcTotalSalary();
 	virtual void  changeCoachSalary(double );
 
-	// --------------------- //
-   //    About Employee     //
-  //   ------------------  //
+
 	virtual int getNumPlayers();
 	virtual void setPlayerSalary(int, double);
 	virtual double getSpecificPlayerValue(int );
@@ -42,12 +37,8 @@ public:
 	virtual void FireCoach();	
 	virtual void RecruitPlayer();
 	virtual void RecruitCoach();
-	virtual void addPerson();
 	virtual void transferPlayer(int i);
 
-	// --------------------- //
-   //    About I-O          //
-  //   ------------------  //
 	void Input();
 	void Output();
 	void printInfo();

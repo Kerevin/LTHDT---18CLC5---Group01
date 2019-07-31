@@ -78,54 +78,6 @@ int Team::getNumPlayers()
 	return this->numPlayers;
 }
 
-
-void Team::addPerson() {
-	Person * p;
-	int ch;
-	cout << "Position that you want to recruit " << endl;
-	do
-	{
-		cout << endl << "(1: Coach; 2: Player): ";
-		cin >> ch;
-	} while (ch > 2 || ch < 1);
-	cin.ignore(1);
-	if (ch == 1)
-	{
-		string answer;
-		do {
-			cout << "To Recruit a new coach, you have to fire the coach working in your team, do you sure about this? (Y/N):";
-			getline(cin, answer);
-		} while (answer != "Y" && answer != "y" && answer != "N" && answer != "n" && answer != "Yes" &&
-			answer != "yes" && answer != "No" && answer != "no");
-		if (answer == "Yes" || answer == "yes" || answer == "YES" || answer == "Y" || answer == "y")
-		{
-			p = new Coach();
-			m_Coach = (Coach *)p;
-		}
-	}
-	else
-	{
-		int num = 0;
-		do {
-			cout << "Enter number of players you want to recruit:";
-			cin >> num;
-			cin.ignore();
-			if (num <= 0)
-				cout << "Number of players you want to recruit has to be an positive integer." << endl;
-		} while (num <= 0);
-		for (int i = 0; i < num; i++)
-		{
-			p = new Player();
-
-			m_Player.push_back((Player *)p);
-			numPlayers++;
-		}
-	}
-	p->Input();
-
-}
-
-
 double Team::calcTotalSalary()
 {
 	double total=0;

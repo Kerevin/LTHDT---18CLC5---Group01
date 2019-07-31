@@ -8,14 +8,6 @@ Person::Person()
 	 m_ID = "Unknown";
 	 m_Salary = 0;
 }
-Person::Person(string n, string d, string na, string id, double salary)
-{
-	m_Name = n;
-	m_DoB = d;
-	m_Nationality = na;
-	m_ID = id;
-	m_Salary = salary;
-}
 
 Person::~Person()
 {
@@ -26,7 +18,22 @@ void Person::setSalary(double salaray)
 {
 	m_Salary = salaray;
 }
+void Person::setName(string n)
+{
+	m_Name = n;
+}
+void Person::setNationality(string n)
+{
+	m_Nationality = n;
+}
 
+void Person::setDOB(string d)
+{
+	m_DoB = d;
+}
+void Person::setID(string id) {
+	m_ID = id;
+}
 void Person::Input()
 {
 	cout << "Enter name: ";
@@ -45,6 +52,7 @@ void Person::Input()
 	cin >> m_Salary;
 	cin.ignore();
 }
+
 void Person::Output()
 {
 	cout << "Name: " << m_Name << endl;
@@ -55,12 +63,14 @@ void Person::Output()
 	cout << "Current salary: " << m_Salary << endl;
 }
 
-
 string Person::getName()
 {
 	return m_Name;
 }
-
+string Person::getDOB()
+{
+	return m_DoB;
+}
 string Person::getID()
 {
 	return m_ID;
@@ -68,5 +78,9 @@ string Person::getID()
 double Person::getSalary()
 {
 	return m_Salary;
+}
+string Person::getNationality()
+{
+	return m_Nationality;
 }
 

@@ -7,7 +7,7 @@ using namespace std;
 
 class Person
 {
-private:
+protected:
 	string m_Name;
 	string m_DoB;
 	string m_Nationality;
@@ -16,16 +16,20 @@ private:
 	
 public:
 	Person();
-	Person(string, string, string, string, double);
+
 
 	virtual ~Person();
-
+	virtual void setName(string);
+	virtual void setNationality(string);
 	virtual void setSalary(double );
+	virtual void setDOB(string);
+	virtual void setID(string);
 	virtual void Input();
 	virtual void Output();
 
 	virtual string getName();
 	virtual string getID();
 	virtual double getSalary();
-
+	virtual string getNationality();
+	virtual string getDOB();
 };

@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Coach">
-    <Position X="0.75" Y="4.75" Width="1.75" />
+    <Position X="0.5" Y="5.75" Width="1.75" />
     <InheritanceLine Type="Person" FixedFromPoint="true">
       <Path>
-        <Point X="2.75" Y="2.188" />
-        <Point X="1.625" Y="2.188" />
-        <Point X="1.625" Y="4.75" />
+        <Point X="2.75" Y="2.375" />
+        <Point X="1.375" Y="2.375" />
+        <Point X="1.375" Y="5.75" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
@@ -15,49 +15,57 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Finance">
-    <Position X="11.75" Y="8.25" Width="2.25" />
+    <Position X="10" Y="8.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AgAAAAAAAAAAAAACBAAKAAAAEAAAAAAAAAAAAgACQAE=</HashCode>
       <FileName>Finance.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Main">
-    <Position X="14.75" Y="2" Width="2.25" />
+    <Position X="12.75" Y="5.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AIEAAgAAQoCAAAGAAAAAIBQAIAAACEAAAAABBAAAEAA=</HashCode>
+      <HashCode>AIEAAgAIQoCAAAGAAAAAIBAAAAAACEAAAAABRAAAEAA=</HashCode>
       <FileName>Interface.h</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Login">
+    <Position X="12.75" Y="0.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AIAQABAIgBAAAAAAAQCAAAEAAAAAAAACAAAQAAAAEQA=</HashCode>
+      <FileName>Login.h</FileName>
+    </TypeIdentifier>
+  </Class>
   <Class Name="Manager">
-    <Position X="5.5" Y="3.75" Width="2.25" />
-    <InheritanceLine Type="Person" ManuallyRouted="true" FixedFromPoint="true">
+    <Position X="5.25" Y="5.75" Width="1.75" />
+    <InheritanceLine Type="Person" FixedFromPoint="true">
       <Path>
-        <Point X="5" Y="2.188" />
-        <Point X="6.625" Y="2.188" />
-        <Point X="6.625" Y="3.75" />
+        <Point X="4.5" Y="2.438" />
+        <Point X="6.125" Y="2.438" />
+        <Point X="6.125" Y="5.75" />
       </Path>
     </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAEwCCAAABAQAAAIAAQDgABECAARAAABAAACABAkAI=</HashCode>
+      <HashCode>AABEwCAEAABAQAAgJAAYDgABECAARAAAAAAACABAkCI=</HashCode>
       <FileName>Manager.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Person">
-    <Position X="2.75" Y="0.5" Width="2.25" />
+    <Position X="2.75" Y="0.5" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>EoAAAAAAAAAAAAKAAAAIBAAAEAAAAAAAIQAEAAAAAAA=</HashCode>
+      <HashCode>EoAAAAAAACAAAAKgAAAIBAAAEAAAAAJAIQAEAAACKAA=</HashCode>
       <FileName>Person.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Player">
-    <Position X="2.75" Y="4.75" Width="2.25" />
-    <InheritanceLine Type="Person" ManuallyRouted="true" FixedToPoint="true">
+    <Position X="2.75" Y="5.75" Width="1.75" />
+    <InheritanceLine Type="Person" FixedToPoint="true">
       <Path>
-        <Point X="3.875" Y="3.978" />
-        <Point X="3.875" Y="4.375" />
-        <Point X="3.875" Y="4.375" />
-        <Point X="3.875" Y="4.75" />
+        <Point X="3.625" Y="5.324" />
+        <Point X="3.625" Y="5.75" />
       </Path>
+      <InheritanceModifierLabel ManuallyPlaced="true">
+        <Position X="0.11" Y="0.06" />
+      </InheritanceModifierLabel>
     </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAIABECCABACIAAAAICABEEAQAAAAAAAAgAQAAEBA=</HashCode>
@@ -65,16 +73,16 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Stadium">
-    <Position X="8.25" Y="8.25" Width="2.5" />
+    <Position X="7.5" Y="8.75" Width="1.75" />
     <TypeIdentifier>
       <HashCode>EAAAAAQAAAgAAAAAAACIAAAAEAAAAEAAAAAAAAAAAAA=</HashCode>
       <FileName>Stadium.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Team">
-    <Position X="9.75" Y="0.5" Width="2.5" />
+    <Position X="8.5" Y="0.75" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>EEAMwAQAACgAwAAAAEAcggAAEAIAQAAEEIBMAFCAAAA=</HashCode>
+      <HashCode>EEAMwAQAACgAwAAAAEAeggAAEAIAQAAEEIBMAFCAAAA=</HashCode>
       <FileName>Team.h</FileName>
     </TypeIdentifier>
   </Class>

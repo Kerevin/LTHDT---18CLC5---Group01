@@ -4,6 +4,7 @@
 #include <cstring>
 #include <conio.h>
 #include <fstream>
+#include <iomanip>
 using namespace std;
 class Login
 {
@@ -15,12 +16,17 @@ public:
 	{
 
 	}
-	~Login()
+	virtual ~Login()
 	{
 		if (m_FileData)
 			m_FileData.close();
 	}
 
+
+	string getUserName()
+	{
+		return Username;
+	}
 	virtual	void login()
 	{
 		cout << "Account: ";
@@ -88,6 +94,32 @@ public:
 		m_FileData << Username << endl;
 		m_FileData << Password << endl;
 		m_FileData.close();
+	}
+	virtual string * loadData()
+	{
+		string name;
+		string *list = new string[7];
+		m_FileData.open("information", ios::in);
+		while (m_FileData)
+			{
+				getline(m_FileData, name);
+				if (Username == name)
+				{
+					for (int i = 0 ; i < 7; i++)
+						getline(m_FileData, list[i]);
+					break;
+				}
+			}
+		m_FileData.close();
+		return list;
+	}
+	template <class T> void operator << (const T &s)
+	{
+		m_FileData << fixed << setprecision(0) << endl;
+		this->m_FileData.open("information", ios::app);
+		this->m_FileData << s << endl;
+		this->m_FileData.close();
+		return;
 	}
 
 };
